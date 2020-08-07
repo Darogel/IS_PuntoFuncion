@@ -270,7 +270,8 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-        
+        AgregarFrame ag = new AgregarFrame();
+        ag.show();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
@@ -288,12 +289,14 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
     private void btnFactorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactorActionPerformed
         // TODO add your handling code here:
-        
+        FactorEscalaFrame fe = new FactorEscalaFrame();
+        fe.show();
     }//GEN-LAST:event_btnFactorActionPerformed
 
     private void btnMultiplicadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicadorActionPerformed
         // TODO add your handling code here:
-        
+        MulEsfuerzoFrame mf = new MulEsfuerzoFrame();
+        mf.show();
     }//GEN-LAST:event_btnMultiplicadorActionPerformed
 
     /**
