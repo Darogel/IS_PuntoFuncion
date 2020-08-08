@@ -5,6 +5,11 @@
  */
 package vista;
 
+import controlador.CtrOperaciones;
+import controlador.Servicios;
+import java.text.DecimalFormat;
+import javax.swing.JFrame;
+
 
 
 /**
@@ -16,10 +21,18 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
     /**
      * Creates new form FactorEscalaFrame
      */
-   
+    Servicios sv = new Servicios();
+    //Estimacion est = new Estimacion();
+    DecimalFormat formato1 = new DecimalFormat("#.00");
+
+    JFrame ventana = new JFrame("Factor Escalar");
 
     public FactorEscalaFrame() {
         initComponents();
+          lbEscala.setText(String.valueOf(CtrOperaciones.est.getFactorEscala()));
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        txtMessage.setEditable(false);
         
     }
 
@@ -195,40 +208,196 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-   
+     int cont = 1;
     private void btnPrecedenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrecedenciaActionPerformed
         // TODO add your handling code here:
+if (cont < 6) {
+            cont++;
+        } else {
+            cont = 1;
+        }
 
+        switch (cont) {
+            case 1:
+                btnPrecedencia.setText("NOM");
+                CtrOperaciones.array[0] = 3.72;
+                break;
+            case 2:
+                btnPrecedencia.setText("HI");
+                CtrOperaciones.array[0] = 2.48;
+                break;
+            case 3:
+                btnPrecedencia.setText("VHI");
+                CtrOperaciones.array[0] = 1.24;
+                break;
+            case 4:
+                btnPrecedencia.setText("XHI");
+                CtrOperaciones.array[0] = 0.0;
+                break;
+            case 5:
+                btnPrecedencia.setText("VLO");
+                CtrOperaciones.array[0] = 6.20;
+                break;
+            case 6:
+                btnPrecedencia.setText("LO");
+                CtrOperaciones.array[0] = 4.96;
+                break;
+        }
+        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
     }//GEN-LAST:event_btnPrecedenciaActionPerformed
 
     private void btnPrecedenciaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnPrecedenciaStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPrecedenciaStateChanged
-   
+    int contF = 1;
     private void btnFlexibiliadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlexibiliadActionPerformed
         // TODO add your handling code here:
-
+if (contF < 6) {
+            contF++;
+        } else {
+            contF = 1;
+        }
+        switch (contF) {
+            case 1:
+                btnFlexibiliad.setText("NOM");
+                CtrOperaciones.array[1] = 3.04;
+                break;
+            case 2:
+                btnFlexibiliad.setText("HI");
+                CtrOperaciones.array[1] = 2.03;
+                break;
+            case 3:
+                btnFlexibiliad.setText("VHI");
+                CtrOperaciones.array[1] = 1.01;
+                break;
+            case 4:
+                btnFlexibiliad.setText("XHI");
+                CtrOperaciones.array[1] = 0.0;
+                break;
+            case 5:
+                btnFlexibiliad.setText("VLO");
+                CtrOperaciones.array[1] = 5.07;
+                break;
+            case 6:
+                btnFlexibiliad.setText("LO");
+                CtrOperaciones.array[1] = 4.05;
+                break;
+        }
+        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
     }//GEN-LAST:event_btnFlexibiliadActionPerformed
-    
+     int contA = 1;
     private void btnArquitecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArquitecturaActionPerformed
         // TODO add your handling code here:
-       
+         if (contA < 6) {
+            contA++;
+        } else {
+            contA = 1;
+        }
+        switch (contA) {
+            case 1:
+                btnArquitectura.setText("NOM");
+                CtrOperaciones.array[2] = 4.24;
+                break;
+            case 2:
+                btnArquitectura.setText("HI");
+                CtrOperaciones.array[2] = 2.83;
+                break;
+            case 3:
+                btnArquitectura.setText("VHI");
+                CtrOperaciones.array[2] = 1.41;
+                break;
+            case 4:
+                btnArquitectura.setText("XHI");
+                CtrOperaciones.array[2] = 0.0;
+                break;
+            case 5:
+                btnArquitectura.setText("VLO");
+                CtrOperaciones.array[2] = 7.07;
+                break;
+            case 6:
+                btnArquitectura.setText("LO");
+                CtrOperaciones.array[2] = 5.65;
+                break;
+        }
+        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
         
     }//GEN-LAST:event_btnArquitecturaActionPerformed
-   
+   int contC = 1;
     private void btnCohesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCohesionActionPerformed
         // TODO add your handling code here:
-       
+       if (contC < 6) {
+            contC++;
+        } else {
+            contC = 1;
+        }
+        switch (contC) {
+            case 1:
+                btnCohesion.setText("NOM");
+                CtrOperaciones.array[3] = 3.29;
+                break;
+            case 2:
+                btnCohesion.setText("HI");
+                CtrOperaciones.array[3] = 2.19;
+                break;
+            case 3:
+                btnCohesion.setText("VHI");
+                CtrOperaciones.array[3] = 1.10;
+                break;
+            case 4:
+                btnCohesion.setText("XHI");
+                CtrOperaciones.array[3] = 0.0;
+                break;
+            case 5:
+                btnCohesion.setText("VLO");
+                CtrOperaciones.array[3] = 5.48;
+                break;
+            case 6:
+                btnCohesion.setText("LO");
+                CtrOperaciones.array[3] = 4.38;
+                break;
+        }
+        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
     }//GEN-LAST:event_btnCohesionActionPerformed
-   
+    int contM = 1;
     private void btnMadurezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMadurezActionPerformed
         // TODO add your handling code here:
-       
+       if (contM < 6) {
+            contM++;
+        } else {
+            contM = 1;
+        }
+        switch (contM) {
+            case 1:
+                btnMadurez.setText("NOM");
+                CtrOperaciones.array[4] = 4.68;
+                break;
+            case 2:
+                btnMadurez.setText("HI");
+                CtrOperaciones.array[4] = 3.12;
+                break;
+            case 3:
+                btnMadurez.setText("VHI");
+                CtrOperaciones.array[4] = 1.56;
+                break;
+            case 4:
+                btnMadurez.setText("XHI");
+                CtrOperaciones.array[4] = 0.0;
+                break;
+            case 5:
+                btnMadurez.setText("VLO");
+                CtrOperaciones.array[4] = 7.80;
+                break;
+            case 6:
+                btnMadurez.setText("LO");
+                CtrOperaciones.array[4] = 6.24;
+                break;
+        }
+        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
     }//GEN-LAST:event_btnMadurezActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
-        
+        super.dispose();
     }//GEN-LAST:event_btnOkActionPerformed
 
     /**

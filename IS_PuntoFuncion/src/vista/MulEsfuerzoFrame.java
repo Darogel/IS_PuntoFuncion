@@ -5,6 +5,11 @@
  */
 package vista;
 
+import controlador.CtrOperaciones;
+import controlador.Servicios;
+import java.text.DecimalFormat;
+import javax.swing.JFrame;
+
 
 
 /**
@@ -16,11 +21,18 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
     /**
      * Creates new form MulEsfuerzoFrame
      */
-    
+    DecimalFormat formato1 = new DecimalFormat("#.00");
+    Servicios sv = new Servicios();
+
+    JFrame ventana = new JFrame("Multiplicador Esfuerzo");
 
     public MulEsfuerzoFrame() {
         initComponents();
-        
+        lbMulti.setText(String.valueOf(CtrOperaciones.est.getMulEsfuerzo()));
+        ventana.setSize(800, 600);
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        txtMessage.setEditable(false);
     }
 
     /**
@@ -223,39 +235,286 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-   
+    int cont = 1;
     private void btnComplejidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComplejidadActionPerformed
-       
+       if (cont < 7) {
+            cont++;
+        } else {
+            cont = 1;
+        }
+
+        switch (cont) {
+            case 1:
+                btnComplejidad.setText("NOM");
+                CtrOperaciones.arrayM[0] = 1;
+                break;
+            case 2:
+                btnComplejidad.setText("HI");
+                CtrOperaciones.arrayM[0] = 1.3;
+                break;
+            case 3:
+                btnComplejidad.setText("VHI");
+                CtrOperaciones.arrayM[0] = 1.74;
+                break;
+            case 4:
+                btnComplejidad.setText("XHI");
+                CtrOperaciones.arrayM[0] = 2.38;
+                break;
+            case 5:
+                btnComplejidad.setText("XLO");
+                CtrOperaciones.arrayM[0] = 0.73;
+                break;
+            case 6:
+                btnComplejidad.setText("VLO");
+                CtrOperaciones.arrayM[0] = 0.81;
+                break;
+            case 7:
+                btnComplejidad.setText("LO");
+                CtrOperaciones.arrayM[0] = 0.98;
+                break;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_btnComplejidadActionPerformed
-    
+    int conR = 1;
     private void btnReusabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReusabilidadActionPerformed
-        
+         if (conR < 7) {
+            conR++;
+        } else {
+            conR = 1;
+        }
+
+        switch (conR) {
+            case 1:
+                btnReusabilidad.setText("NOM");
+                CtrOperaciones.arrayM[1] = 1;
+                break;
+            case 2:
+                btnReusabilidad.setText("HI");
+                CtrOperaciones.arrayM[1] = 1.07;
+                break;
+            case 3:
+                btnReusabilidad.setText("VHI");
+                CtrOperaciones.arrayM[1] = 1.15;
+                break;
+            case 4:
+                btnReusabilidad.setText("XHI");
+                CtrOperaciones.arrayM[1] = 1.24;
+                break;
+            case 5:
+                btnReusabilidad.setText("XLO");
+                CtrOperaciones.arrayM[1] = 1;
+                break;
+            case 6:
+                btnReusabilidad.setText("VLO");
+                CtrOperaciones.arrayM[1] = 1;
+                break;
+            case 7:
+                btnReusabilidad.setText("LO");
+                CtrOperaciones.arrayM[1] = 0.95;
+                break;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_btnReusabilidadActionPerformed
-
+int conP = 1;
     private void btnPlataformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlataformaActionPerformed
-        
+       if (conP < 7) {
+            conP++;
+        } else {
+            conP = 1;
+        }
+        switch (conP) {
+            case 1:
+                btnPlataforma.setText("NOM");
+                CtrOperaciones.arrayM[2] = 1;
+                break;
+            case 2:
+                btnPlataforma.setText("HI");
+                CtrOperaciones.arrayM[2] = 1.29;
+                break;
+            case 3:
+                btnPlataforma.setText("VHI");
+                CtrOperaciones.arrayM[2] = 1.81;
+                break;
+            case 4:
+                btnPlataforma.setText("XHI");
+                CtrOperaciones.arrayM[2] = 2.61;
+                break;
+            case 5:
+                btnPlataforma.setText("XLO");
+                CtrOperaciones.arrayM[2] = 1;
+                break;
+            case 6:
+                btnPlataforma.setText("VLO");
+                CtrOperaciones.arrayM[2] = 1;
+                break;
+            case 7:
+                btnPlataforma.setText("LO");
+                CtrOperaciones.arrayM[2] = 0.87;
+                break;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));  
     }//GEN-LAST:event_btnPlataformaActionPerformed
-
+int conA = 1;
     private void btnAptitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAptitudActionPerformed
-       
+         if (conA < 7) {
+            conA++;
+        } else {
+            conA = 1;
+        }
+        switch (conA) {
+            case 1:
+                btnAptitud.setText("NOM");
+                CtrOperaciones.arrayM[3] = 1;
+                break;
+            case 2:
+                btnAptitud.setText("HI");
+                CtrOperaciones.arrayM[3] = 0.83;
+                break;
+            case 3:
+                btnAptitud.setText("VHI");
+                CtrOperaciones.arrayM[3] = 0.63;
+                break;
+            case 4:
+                btnAptitud.setText("XHI");
+                CtrOperaciones.arrayM[3] = 0.5;
+                break;
+            case 5:
+                btnAptitud.setText("XLO");
+                CtrOperaciones.arrayM[3] = 2.12;
+                break;
+            case 6:
+                btnAptitud.setText("VLO");
+                CtrOperaciones.arrayM[3] = 1.62;
+                break;
+            case 7:
+                btnAptitud.setText("LO");
+                CtrOperaciones.arrayM[3] = 1.26;
+                break;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_btnAptitudActionPerformed
-
+int conE = 1;
     private void btnExperienciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExperienciaActionPerformed
-        
+         if (conE < 7) {
+            conE++;
+        } else {
+            conE = 1;
+        }
+        switch (conE) {
+            case 1:
+                btnExperiencia.setText("NOM");
+                CtrOperaciones.arrayM[4] = 1;
+                break;
+            case 2:
+                btnExperiencia.setText("HI");
+                CtrOperaciones.arrayM[4] = 0.87;
+                break;
+            case 3:
+                btnExperiencia.setText("VHI");
+                CtrOperaciones.arrayM[4] = 0.71;
+                break;
+            case 4:
+                btnExperiencia.setText("XHI");
+                CtrOperaciones.arrayM[4] = 0.62;
+                break;
+            case 5:
+                btnExperiencia.setText("XLO");
+                CtrOperaciones.arrayM[4] = 1.59;
+                break;
+            case 6:
+                btnExperiencia.setText("VLO");
+                CtrOperaciones.arrayM[4] = 1.33;
+                break;
+            case 7:
+                btnExperiencia.setText("LO");
+                CtrOperaciones.arrayM[4] = 1.12;
+                break;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_btnExperienciaActionPerformed
-  
+   int conF = 1;
     private void btnFacilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacilidadesActionPerformed
-        
+         if (conF < 7) {
+            conF++;
+        } else {
+            conF = 1;
+        }
+        switch (conF) {
+            case 1:
+                btnFacilidades.setText("NOM");
+                CtrOperaciones.arrayM[5] = 1;
+                break;
+            case 2:
+                btnFacilidades.setText("HI");
+                CtrOperaciones.arrayM[5] = 0.87;
+                break;
+            case 3:
+                btnFacilidades.setText("VHI");
+                CtrOperaciones.arrayM[5] = 0.73;
+                break;
+            case 4:
+                btnFacilidades.setText("XHI");
+                CtrOperaciones.arrayM[5] = 0.62;
+                break;
+            case 5:
+                btnFacilidades.setText("XHI");
+                CtrOperaciones.arrayM[5] = 1.43;
+                break;
+            case 6:
+                btnFacilidades.setText("VLO");
+                CtrOperaciones.arrayM[5] = 1.3;
+                break;
+            case 7:
+                btnFacilidades.setText("LO");
+                CtrOperaciones.arrayM[5] = 1.1;
+                break;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_btnFacilidadesActionPerformed
-    
+    int contC = 1;
     private void btnCronogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCronogramaActionPerformed
         // TODO add your handling code here:
-       
+        if (contC < 7) {
+            contC++;
+        } else {
+            contC = 1;
+        }
+        switch (contC) {
+            case 1:
+                btnCronograma.setText("NOM");
+                CtrOperaciones.arrayM[6] = 1;
+                break;
+            case 2:
+                btnCronograma.setText("HI");
+                CtrOperaciones.arrayM[6] = 1;
+                break;
+            case 3:
+                btnCronograma.setText("VHI");
+                CtrOperaciones.arrayM[6] = 1;
+                break;
+            case 4:
+                btnCronograma.setText("XHI");
+                CtrOperaciones.arrayM[6] = 1;
+                break;
+            case 5:
+                btnCronograma.setText("XHI");
+                CtrOperaciones.arrayM[6] = 1;
+                break;
+            case 6:
+                btnCronograma.setText("VLO");
+                CtrOperaciones.arrayM[6] = 1.43;
+                break;
+            case 7:
+                btnCronograma.setText("LO");
+                CtrOperaciones.arrayM[6] = 1.14;
+                break;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_btnCronogramaActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
-        
+        super.dispose();
     }//GEN-LAST:event_btnOkActionPerformed
 
     /**

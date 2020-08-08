@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.Servicios;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,14 +18,15 @@ public class PrincipalFrame extends javax.swing.JFrame {
     /**
      * Creates new form PrincipalFrame
      */
-    
+    Servicios sv = new Servicios();
+    //Estimacion est = new Estimacion();
+
     DefaultTableModel model = new DefaultTableModel();
-    
+
     public PrincipalFrame() {
         initComponents();
         JOptionPane.showMessageDialog(null, "En caso de no ingresar Valores se usaran valores por defecto", "Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
         txtNombre.requestFocus();
-        btnAgg.setVisible(false);
         txtSced.setText("25");
         txtCost.setText("10");
         txtSalario.setText("0");
@@ -32,14 +34,18 @@ public class PrincipalFrame extends javax.swing.JFrame {
         model.addColumn("Nombre");
         model.addColumn("Punto Función");
         model.addColumn("Lineas Cod");
-        model.addColumn("Factor Escala");
-        model.addColumn("Esf. Nominal");
-        model.addColumn("Mul. Esfuezo");
+        //model.addColumn("Factor Escala");
+        //  model.addColumn("Esf. Nominal");
+        //model.addColumn("Mul. Esfuezo");
         model.addColumn("Esf. Estimado");
-        model.addColumn("Tiempo/Mes");
+        model.addColumn("Est. Tiempo");
+        model.addColumn("% Holgura");
         model.addColumn("Tiempo Total");
         model.addColumn("Est. Persona");
+        model.addColumn("Pago hora");
         model.addColumn("Est. Costo");
+        model.addColumn("% Extra Costo");
+        model.addColumn("Costo Total");
         this.jtTable.setModel(model);
         btnEliminar.setEnabled(false);
     }
@@ -57,7 +63,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
         txtSced = new javax.swing.JTextField();
         txtSalario = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        btnAgg = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -83,16 +88,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
         txtSced.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        btnAgg.setText("Agregar Archivo");
-        btnAgg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAggActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Nombre del Proyecto: ");
 
-        btnAgregar.setText("IFPUG");
+        btnAgregar.setText("Punto Funcion");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
@@ -138,17 +136,17 @@ public class PrincipalFrame extends javax.swing.JFrame {
         jtTable.setForeground(new java.awt.Color(51, 51, 51));
         jtTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre Archivo", "Punto Función", "Lineas de Codigo", "Factor Escala", "Esfuerzo Nominal", "Mul. Esfuerzo", "Esfuerzo Estimado", "Tiempo/Meses", "Tiempo Total", "Est. Personal", "Costo"
+                "Nombre Archivo", "Punto Función", "Lineas de Codigo", "Esfuerzo Estimado", "Est. tiempo", "% Holgura", "Tiempo Total", "Est. Personal", "Pago Hora", "Est. Costo", "% Extra Costo", "Costo Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -178,35 +176,29 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(153, 153, 153)
-                                .addComponent(btnAgg))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtSced, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel4)
+                                .addGap(27, 27, 27)
+                                .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(429, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnReestrablecer)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnCalcular)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnEliminar))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel3))
-                                    .addGap(29, 29, 29)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txtSced, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(47, 47, 47)
-                                            .addComponent(jLabel4)
-                                            .addGap(27, 27, 27)
-                                            .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addContainerGap(36, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCalcular)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminar))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,9 +220,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                     .addComponent(btnFactor)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAgg)
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -242,12 +232,12 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCalcular)
                     .addComponent(btnReestrablecer)
+                    .addComponent(btnCalcular)
                     .addComponent(btnEliminar))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -259,14 +249,10 @@ public class PrincipalFrame extends javax.swing.JFrame {
         int eli = jtTable.getSelectedRowCount();
         if (eli >= 0) {
             model.removeRow(eli);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "No hay datos que eliminar");
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnAggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAggActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAggActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
@@ -276,13 +262,67 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         // TODO add your handling code here:
-        
+if (sv.est.getLineasCod() == 0) {
+            int op = JOptionPane.showConfirmDialog(null, "Las Lineas de Codigo son 0, Desea Continuar");
+            if (JOptionPane.OK_OPTION == op) {
+                double sced = Double.parseDouble(txtSced.getText());
+                double salario = Double.parseDouble(txtSalario.getText());
+                double costV = Double.parseDouble(txtCost.getText());
+                sv.calcularPmEstimado();
+                sv.calcularEstTiempo(sced);
+                sv.calcularEstPersona();
+                sv.calcularEstCosto(salario, costV);
+                String[] agregar = new String[12];
+                agregar[0] = txtNombre.getText();
+                agregar[1] = String.valueOf(sv.est.getPuntoFuncion());
+                agregar[2] = String.valueOf(sv.est.getLineasCod() * 1000);
+                //agregar[3] = String.valueOf(sv.est.getFactorEscala());
+                //agregar[4] = String.valueOf(sv.est.getPmNominal());
+                //agregar[5] = String.valueOf(sv.est.getMulEsfuerzo());
+                agregar[3] = String.valueOf(sv.est.getPmEstimado());
+                agregar[4] = String.valueOf(sv.est.getEstTiempo() / (1 + (sced * 0.01)));
+                agregar[5] = String.valueOf(sced);
+                agregar[6] = String.valueOf(sv.est.getEstTiempo());
+                agregar[7] = String.valueOf(sv.est.getEsthHombre());
+                agregar[8] = String.valueOf(salario);
+                agregar[9] = String.valueOf(sv.est.getEstCosto() / (1 + (costV * 0.01)));
+                agregar[10] = String.valueOf(costV);
+                agregar[11] = String.valueOf(sv.est.getEstCosto());
+                model.addRow(agregar);
+            }
+        } else {
+            double sced = Double.parseDouble(txtSced.getText());
+            double salario = Double.parseDouble(txtSalario.getText());
+            double costV = Double.parseDouble(txtCost.getText());
+            sv.calcularPmEstimado();
+            sv.calcularEstTiempo(sced);
+            sv.calcularEstPersona();
+            sv.calcularEstCosto(salario, costV);
+            String[] agregar = new String[12];
+            agregar[0] = txtNombre.getText();
+            agregar[1] = String.valueOf(sv.est.getPuntoFuncion());
+            agregar[2] = String.valueOf(sv.est.getLineasCod() * 1000);
+            // agregar[3] = String.valueOf(sv.est.getFactorEscala());
+            //agregar[4] = String.valueOf(sv.est.getPmNominal());
+            //agregar[5] = String.valueOf(sv.est.getMulEsfuerzo());
+            agregar[3] = String.valueOf(sv.est.getPmEstimado());
+            agregar[4] = String.valueOf(sv.est.getEstTiempo() / (1 + (sced * 0.01)));
+            agregar[5] = String.valueOf(sced);
+            agregar[6] = String.valueOf(sv.est.getEstTiempo());
+            agregar[7] = String.valueOf(sv.est.getEsthHombre());
+            agregar[8] = String.valueOf(salario);
+            agregar[9] = String.valueOf(sv.est.getEstCosto() / (1 + (costV * 0.01)));
+            agregar[10] = String.valueOf(costV);
+            agregar[11] = String.valueOf(sv.est.getEstCosto());
+            model.addRow(agregar);
+        }
+        btnEliminar.setEnabled(true);
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnReestrablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReestrablecerActionPerformed
         // TODO add your handling code here:
         int eliT = jtTable.getRowCount();
-        for (int i = eliT-1; i >= 0; i--) {
+        for (int i = eliT - 1; i >= 0; i--) {
             model.removeRow(i);
         }
     }//GEN-LAST:event_btnReestrablecerActionPerformed
@@ -335,7 +375,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgg;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnEliminar;

@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controlador.CtrOperaciones;
+import controlador.Servicios;
 import javax.swing.JFrame;
 
 /**
@@ -25,6 +27,9 @@ public class AgregarFrame extends javax.swing.JFrame {
         this.setResizable(false);
         txtLineasPF.setEditable(false);
         txtMessage.setEditable(false);
+        txtLineasPF.setText(String.valueOf(CtrOperaciones.lenguaje));
+        lbPfTotal.setText(String.valueOf(CtrOperaciones.est.getPuntoFuncion()));
+        lbLineasTotal.setText(String.valueOf(CtrOperaciones.est.getLineasCod()));
         
     }
 
@@ -341,7 +346,7 @@ public class AgregarFrame extends javax.swing.JFrame {
 
     private void btnpruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpruebaActionPerformed
         // TODO add your handling code here:
-        
+         Servicios sv = new Servicios();
 
         compAlta[0] = (Integer) spnEAlta.getValue();
         compAlta[1] = (Integer) spnSeAlta.getValue();
@@ -360,13 +365,36 @@ public class AgregarFrame extends javax.swing.JFrame {
         compBaja[2] = (Integer) spnCeBaja.getValue();
         compBaja[3] = (Integer) spnAliBaja.getValue();
         compBaja[4] = (Integer) spnAieBaja.getValue();
+        sv.calcularComplejidad(compBaja, compAlta, compMedia);
+        int valor = sv.calcularPf(CtrOperaciones.py.getComponente());
+        System.out.println("Valor PF " + valor);
         
+        double est = sv.calcularLineasCod();
+        System.out.println("Valor LineasCod " + est*1000);
+
+        lbPfTotal.setText(String.valueOf(valor));
+        lbLineasTotal.setText(String.valueOf(est*1000));
  
     }//GEN-LAST:event_btnpruebaActionPerformed
 
     private void cbnLenguajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbnLenguajeActionPerformed
         // TODO add your handling code here:
-        
+        if (cbnLenguaje.getSelectedItem() == "JAVA") {
+            txtLineasPF.setText("53");
+            CtrOperaciones.lenguaje = 53;
+        }
+        if (cbnLenguaje.getSelectedItem() == "PHP") {
+            txtLineasPF.setText("23");
+            CtrOperaciones.lenguaje = 23;
+        }
+        if (cbnLenguaje.getSelectedItem() == "NODE.JS") {
+            txtLineasPF.setText("45");
+            CtrOperaciones.lenguaje = 45;
+        }
+        if (cbnLenguaje.getSelectedItem() == "SELECCIONAR") {
+            txtLineasPF.setText("53");
+            CtrOperaciones.lenguaje = 53;
+        }
 
     }//GEN-LAST:event_cbnLenguajeActionPerformed
 
