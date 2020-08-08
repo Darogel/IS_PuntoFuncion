@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import modelo.Componente;
 import modelo.Estimacion;
 import modelo.Proyecto;
+import vista.AgregarFrame;
 
 /**
  *
@@ -72,5 +73,71 @@ public class CtrOperaciones {
         double costV = cost * (variacion /100);
         est.setEstCosto((cost+costV));
         System.out.println("Costo++ " + est.getEstCosto());
+    }
+    /**
+     * Metodo para calcular el Esfuerzo Estimado
+     */
+    public void calcularPmEstimado() {
+        double B = 0.91 + (0.01 * est.getFactorEscala());
+        est.setNominalB(B);
+        double pmN = est.getNominalA() * Math.pow(est.getLineasCod(), B);
+        est.setPmNominal(pmN);
+        double pmE = pmN * est.getMulEsfuerzo();
+        est.setPmEstimado(pmE);
+    }
+    
+    /**
+     * Metodo para calcular la complejidad del proyecto a partir del punto función
+     * @param arrayBaja
+     * @param arrayAlta
+     * @param arrayMedia 
+     */
+    public void calcularComplejidad(int[] arrayBaja, int[] arrayAlta, int[] arrayMedia) {
+        int aux;
+        ArrayList<Componente> list = new ArrayList();
+        AgregarFrame ag = new AgregarFrame();
+        for (int i = 0; i < ag.compBaja.length; i++) {
+            aux = 0;
+            aux = (compBaja[i] * arrayBaja[i]) + (compMedia[i] * arrayMedia[i]) + (compAlta[i] * arrayAlta[i]);
+            Componente ce = new Componente();
+            ce.setTipo(i);
+            ce.setValor(aux);
+            list.add(ce);
+        }
+        py.setComponente(list);
+    }
+    
+    /**
+     * Calcular la cantidad de personal estimado del proyecto
+     */
+    public void calcularEstPersona() {
+        double prTc = est.getPmEstimado() / est.getEstTiempo();
+        est.setEsthHombre(prTc);
+    }
+    
+    /**
+     * Metodo para calcular el factor escala del proyecto
+     * @return fEscala
+     */
+    public double calFactorEscala() {
+        double fEscala = 0;
+        for (int i = 0; i < array.length; i++) {
+            fEscala += array[i];
+        }
+        est.setFactorEscala(fEscala);
+        return fEscala;
+    }
+    
+    /**
+     * Metodo para calcular el Multiplicados de esfuerzo del proyecto
+     * @return mEsfuerzo
+     */
+    public double calMultiEsfuerzo() {
+        double mEsfuerzo = 1;
+        for (int i = 0; i < arrayM.length; i++) {
+            mEsfuerzo *= arrayM[i];
+        }
+        est.setMulEsfuerzo(mEsfuerzo);
+        return mEsfuerzo;
     }
 }
