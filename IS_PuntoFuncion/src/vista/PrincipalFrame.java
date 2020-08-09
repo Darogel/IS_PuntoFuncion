@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.Servicios;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,12 +20,17 @@ public class PrincipalFrame extends javax.swing.JFrame {
      * Creates new form PrincipalFrame
      */
     Servicios sv = new Servicios();
+    public static Color color1 = new Color(36, 41, 46);
+    public static Color color2 = new Color(246, 248, 250);
     //Estimacion est = new Estimacion();
 
     DefaultTableModel model = new DefaultTableModel();
 
     public PrincipalFrame() {
         initComponents();
+        jPanel2.setBackground(PrincipalFrame.color1);
+        this.getContentPane().setBackground(PrincipalFrame.color2);
+
         JOptionPane.showMessageDialog(null, "En caso de no ingresar Valores se usaran valores por defecto", "Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
         txtNombre.requestFocus();
         txtSced.setText("25");
@@ -62,23 +68,28 @@ public class PrincipalFrame extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         txtSced = new javax.swing.JTextField();
         txtSalario = new javax.swing.JTextField();
-        txtNombre = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        btnAgregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JButton();
         btnReestrablecer = new javax.swing.JButton();
-        btnFactor = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        btnMultiplicador = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTable = new javax.swing.JTable();
         txtCost = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        btnFactor = new javax.swing.JButton();
+        btnMultiplicador = new javax.swing.JButton();
+        txtNombre = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cocomo II - Punto funcion");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        btnEliminar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,19 +97,17 @@ public class PrincipalFrame extends javax.swing.JFrame {
             }
         });
 
+        txtSced.setBackground(new java.awt.Color(246, 248, 250));
+        txtSced.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         txtSced.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel1.setText("Nombre del Proyecto: ");
+        txtSalario.setBackground(new java.awt.Color(246, 248, 250));
+        txtSalario.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        btnAgregar.setText("Punto Funcion");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-
+        jLabel2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel2.setText("Porcentaje de variación del Calendario: ");
 
+        btnCalcular.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnCalcular.setText("Calcular");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,6 +115,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
             }
         });
 
+        btnReestrablecer.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnReestrablecer.setText("Restablecer tabla");
         btnReestrablecer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,26 +123,15 @@ public class PrincipalFrame extends javax.swing.JFrame {
             }
         });
 
-        btnFactor.setText("Factor Escala");
-        btnFactor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFactorActionPerformed(evt);
-            }
-        });
-
+        jLabel3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel3.setText("Salario por Hora: ");
 
-        btnMultiplicador.setText("Multiplicador Esfuerzo");
-        btnMultiplicador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMultiplicadorActionPerformed(evt);
-            }
-        });
-
+        jLabel4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel4.setText("Porcentaje variación del Costo");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(246, 248, 250));
 
+        jtTable.setBackground(new java.awt.Color(246, 248, 250));
         jtTable.setForeground(new java.awt.Color(51, 51, 51));
         jtTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,6 +152,8 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jtTable.setGridColor(new java.awt.Color(246, 248, 250));
+        jtTable.setSelectionBackground(new java.awt.Color(33, 136, 255));
         jScrollPane1.setViewportView(jtTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -163,9 +164,82 @@ public class PrincipalFrame extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+        );
+
+        txtCost.setBackground(new java.awt.Color(246, 248, 250));
+        txtCost.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+
+        btnFactor.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnFactor.setText("Factor Escala");
+        btnFactor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFactorActionPerformed(evt);
+            }
+        });
+
+        btnMultiplicador.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnMultiplicador.setText("Multiplicador Esfuerzo");
+        btnMultiplicador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicadorActionPerformed(evt);
+            }
+        });
+
+        txtNombre.setBackground(new java.awt.Color(246, 248, 250));
+        txtNombre.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("Nombre del Proyecto: ");
+
+        btnAgregar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnAgregar.setText("Punto Funcion");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        lblTitulo.setBackground(new java.awt.Color(36, 31, 46));
+        lblTitulo.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(204, 204, 204));
+        lblTitulo.setText("COCOMO II - PUNTO FUNCIÓN");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnFactor)
+                .addGap(18, 18, 18)
+                .addComponent(btnMultiplicador)
+                .addGap(47, 47, 47))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(lblTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lblTitulo)
+                .addGap(66, 66, 66)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnMultiplicador)
+                    .addComponent(btnFactor))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -173,7 +247,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -186,7 +260,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(27, 27, 27)
                                 .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(429, Short.MAX_VALUE))
+                        .addContainerGap(289, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -197,30 +271,15 @@ public class PrincipalFrame extends javax.swing.JFrame {
                                 .addComponent(btnCalcular)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnEliminar))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAgregar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnFactor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnMultiplicador)))
-                        .addGap(31, 31, 31))))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(41, 41, 41))))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnMultiplicador)
-                    .addComponent(btnFactor)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(50, 50, 50)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -237,7 +296,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
                     .addComponent(btnReestrablecer)
                     .addComponent(btnCalcular)
                     .addComponent(btnEliminar))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -287,9 +346,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
             agregar[10] = String.valueOf(costV);
             agregar[11] = String.valueOf(sv.est.getEstCosto());
             model.addRow(agregar);
-             btnEliminar.setEnabled(true);
+            btnEliminar.setEnabled(true);
         }
-       
+
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnReestrablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReestrablecerActionPerformed
@@ -359,8 +418,10 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtTable;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JTextField txtCost;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSalario;

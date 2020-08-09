@@ -10,8 +10,6 @@ import controlador.Servicios;
 import java.text.DecimalFormat;
 import javax.swing.JFrame;
 
-
-
 /**
  *
  * @author Darwin
@@ -29,11 +27,13 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
 
     public FactorEscalaFrame() {
         initComponents();
-          lbEscala.setText(String.valueOf(CtrOperaciones.est.getFactorEscala()));
+        jPanel1.setBackground(PrincipalFrame.color1);
+        this.getContentPane().setBackground(PrincipalFrame.color2);
+        lbEscala.setText(String.valueOf(CtrOperaciones.est.getFactorEscala()));
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         txtMessage.setEditable(false);
-        
+
     }
 
     /**
@@ -46,7 +46,6 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         lbEscala = new javax.swing.JLabel();
-        txtMessage = new javax.swing.JTextField();
         cbxPrecedencia = new javax.swing.JComboBox<>();
         cbxFlexibilidad = new javax.swing.JComboBox<>();
         cbxArquitectura = new javax.swing.JComboBox<>();
@@ -59,15 +58,16 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnOk = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        txtMessage = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
+        lbEscala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbEscala.setText("jLabel8");
 
-        txtMessage.setEditable(false);
-        txtMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtMessage.setText("FACTOR ESCALA");
-
+        cbxPrecedencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbxPrecedencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
         cbxPrecedencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +75,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
             }
         });
 
+        cbxFlexibilidad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbxFlexibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
         cbxFlexibilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +83,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
             }
         });
 
+        cbxArquitectura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbxArquitectura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
         cbxArquitectura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +91,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
             }
         });
 
+        cbxCohesion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbxCohesion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
         cbxCohesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +99,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
             }
         });
 
+        cbxMadurez.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbxMadurez.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
         cbxMadurez.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,16 +107,22 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Precedencia");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Flexibilidad");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Arquitectura / Resolución de riesgo");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Cohesión de equipo");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Madurez del Proceso");
 
+        btnOk.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnOk.setText("OK");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +130,33 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Factor Escala");
+
+        txtMessage.setEditable(false);
+        txtMessage.setBackground(new java.awt.Color(36, 41, 46));
+        txtMessage.setFont(new java.awt.Font("Verdana", 1, 30)); // NOI18N
+        txtMessage.setForeground(new java.awt.Color(204, 204, 204));
+        txtMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtMessage.setText("FACTOR ESCALA");
+        txtMessage.setBorder(null);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,7 +175,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(cbxArquitectura, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -153,17 +189,13 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cbxPrecedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -316,7 +348,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         super.dispose();
     }//GEN-LAST:event_btnOkActionPerformed
 
-   //  int cont = 1;    int contF = 1;     int contA = 1;   int contC = 1;    int contM = 1;
+    //  int cont = 1;    int contF = 1;     int contA = 1;   int contC = 1;    int contM = 1;
     /**
      * @param args the command line arguments
      */
@@ -365,6 +397,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbEscala;
     private javax.swing.JTextField txtMessage;
     // End of variables declaration//GEN-END:variables
