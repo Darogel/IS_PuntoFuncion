@@ -18,7 +18,7 @@ import vista.AgregarFrame;
 public class CtrOperaciones {
     public static int lenguaje = 53;
     public static Proyecto py = new Proyecto();
-    public static double[] array = new double[5];
+    public static double[] array = {3.72, 3.04, 4.24, 3.29, 4.68};
     public static double[] arrayM = {1, 1, 1, 1, 1, 1, 1};
 
     public static Estimacion est = new Estimacion();

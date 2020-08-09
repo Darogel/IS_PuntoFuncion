@@ -45,23 +45,63 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbEscala = new javax.swing.JLabel();
+        txtMessage = new javax.swing.JTextField();
+        cbxPrecedencia = new javax.swing.JComboBox<>();
+        cbxFlexibilidad = new javax.swing.JComboBox<>();
+        cbxArquitectura = new javax.swing.JComboBox<>();
+        cbxCohesion = new javax.swing.JComboBox<>();
+        cbxMadurez = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btnPrecedencia = new javax.swing.JButton();
-        btnFlexibiliad = new javax.swing.JButton();
-        btnArquitectura = new javax.swing.JButton();
-        btnCohesion = new javax.swing.JButton();
-        btnMadurez = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        lbEscala = new javax.swing.JLabel();
-        txtMessage = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lbEscala.setText("jLabel8");
+
+        txtMessage.setEditable(false);
+        txtMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtMessage.setText("FACTOR ESCALA");
+
+        cbxPrecedencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
+        cbxPrecedencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxPrecedenciaActionPerformed(evt);
+            }
+        });
+
+        cbxFlexibilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
+        cbxFlexibilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxFlexibilidadActionPerformed(evt);
+            }
+        });
+
+        cbxArquitectura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
+        cbxArquitectura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxArquitecturaActionPerformed(evt);
+            }
+        });
+
+        cbxCohesion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
+        cbxCohesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCohesionActionPerformed(evt);
+            }
+        });
+
+        cbxMadurez.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "VLO", "LO" }));
+        cbxMadurez.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxMadurezActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Precedencia");
 
@@ -73,48 +113,6 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
 
         jLabel5.setText("Madurez del Proceso");
 
-        btnPrecedencia.setText("NOM");
-        btnPrecedencia.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                btnPrecedenciaStateChanged(evt);
-            }
-        });
-        btnPrecedencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrecedenciaActionPerformed(evt);
-            }
-        });
-
-        btnFlexibiliad.setText("NOM");
-        btnFlexibiliad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFlexibiliadActionPerformed(evt);
-            }
-        });
-
-        btnArquitectura.setText("NOM");
-        btnArquitectura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnArquitecturaActionPerformed(evt);
-            }
-        });
-
-        btnCohesion.setText("NOM");
-        btnCohesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCohesionActionPerformed(evt);
-            }
-        });
-
-        btnMadurez.setText("NOM");
-        btnMadurez.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMadurezActionPerformed(evt);
-            }
-        });
-
-        jButton6.setText("Cancelar");
-
         btnOk.setText("OK");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,11 +122,6 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
 
         jLabel7.setText("Factor Escala");
 
-        lbEscala.setText("jLabel8");
-
-        txtMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtMessage.setText("FACTOR ESCALA");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,269 +130,193 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnOk)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnOk))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel4)))
-                        .addGap(34, 34, 34)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCohesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnFlexibiliad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnArquitectura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnMadurez, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnPrecedencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(39, 39, 39))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbEscala)
-                .addGap(48, 48, 48))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cbxArquitectura, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxPrecedencia, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cbxFlexibilidad, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cbxCohesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxMadurez, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbEscala))))
+                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
                 .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(btnPrecedencia))
+                    .addComponent(cbxPrecedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFlexibiliad)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(cbxFlexibilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(btnArquitectura))
+                    .addComponent(cbxArquitectura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(btnCohesion))
+                    .addComponent(cbxCohesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(btnMadurez))
-                .addGap(18, 18, 18)
+                    .addComponent(cbxMadurez, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(lbEscala))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(btnOk))
-                .addGap(23, 23, 23))
+                .addGap(32, 32, 32)
+                .addComponent(btnOk)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-     int cont = 1;
-    private void btnPrecedenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrecedenciaActionPerformed
+    private void cbxPrecedenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPrecedenciaActionPerformed
         // TODO add your handling code here:
-if (cont < 6) {
-            cont++;
-        } else {
-            cont = 1;
+        if ("NOM" == cbxPrecedencia.getSelectedItem()) {
+            CtrOperaciones.array[0] = 3.72;
         }
+        if ("HI" == cbxPrecedencia.getSelectedItem()) {
+            CtrOperaciones.array[0] = 2.48;
+        }
+        if ("VHI" == cbxPrecedencia.getSelectedItem()) {
+            CtrOperaciones.array[0] = 1.24;
+        }
+        if ("XHI" == cbxPrecedencia.getSelectedItem()) {
+            CtrOperaciones.array[0] = 0.0;
+        }
+        if ("VLO" == cbxPrecedencia.getSelectedItem()) {
+            CtrOperaciones.array[0] = 6.20;
+        }
+        if ("LO" == cbxPrecedencia.getSelectedItem()) {
+            CtrOperaciones.array[6] = 4.96;
+        }
+        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
+    }//GEN-LAST:event_cbxPrecedenciaActionPerformed
 
-        switch (cont) {
-            case 1:
-                btnPrecedencia.setText("NOM");
-                CtrOperaciones.array[0] = 3.72;
-                break;
-            case 2:
-                btnPrecedencia.setText("HI");
-                CtrOperaciones.array[0] = 2.48;
-                break;
-            case 3:
-                btnPrecedencia.setText("VHI");
-                CtrOperaciones.array[0] = 1.24;
-                break;
-            case 4:
-                btnPrecedencia.setText("XHI");
-                CtrOperaciones.array[0] = 0.0;
-                break;
-            case 5:
-                btnPrecedencia.setText("VLO");
-                CtrOperaciones.array[0] = 6.20;
-                break;
-            case 6:
-                btnPrecedencia.setText("LO");
-                CtrOperaciones.array[0] = 4.96;
-                break;
+    private void cbxFlexibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxFlexibilidadActionPerformed
+        // TODO add your handling code here:
+        if ("NOM" == cbxFlexibilidad.getSelectedItem()) {
+            CtrOperaciones.array[1] = 3.04;
+        }
+        if ("HI" == cbxFlexibilidad.getSelectedItem()) {
+            CtrOperaciones.array[1] = 2.03;
+        }
+        if ("VHI" == cbxFlexibilidad.getSelectedItem()) {
+            CtrOperaciones.array[1] = 1.01;
+        }
+        if ("XHI" == cbxFlexibilidad.getSelectedItem()) {
+            CtrOperaciones.array[1] = 0.0;
+        }
+        if ("VLO" == cbxFlexibilidad.getSelectedItem()) {
+            CtrOperaciones.array[1] = 5.07;
+        }
+        if ("LO" == cbxFlexibilidad.getSelectedItem()) {
+            CtrOperaciones.array[1] = 4.05;
         }
         lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
-    }//GEN-LAST:event_btnPrecedenciaActionPerformed
+    }//GEN-LAST:event_cbxFlexibilidadActionPerformed
 
-    private void btnPrecedenciaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnPrecedenciaStateChanged
+    private void cbxArquitecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxArquitecturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPrecedenciaStateChanged
-    int contF = 1;
-    private void btnFlexibiliadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlexibiliadActionPerformed
-        // TODO add your handling code here:
-if (contF < 6) {
-            contF++;
-        } else {
-            contF = 1;
+        if ("NOM" == cbxArquitectura.getSelectedItem()) {
+            CtrOperaciones.array[2] = 4.24;
         }
-        switch (contF) {
-            case 1:
-                btnFlexibiliad.setText("NOM");
-                CtrOperaciones.array[1] = 3.04;
-                break;
-            case 2:
-                btnFlexibiliad.setText("HI");
-                CtrOperaciones.array[1] = 2.03;
-                break;
-            case 3:
-                btnFlexibiliad.setText("VHI");
-                CtrOperaciones.array[1] = 1.01;
-                break;
-            case 4:
-                btnFlexibiliad.setText("XHI");
-                CtrOperaciones.array[1] = 0.0;
-                break;
-            case 5:
-                btnFlexibiliad.setText("VLO");
-                CtrOperaciones.array[1] = 5.07;
-                break;
-            case 6:
-                btnFlexibiliad.setText("LO");
-                CtrOperaciones.array[1] = 4.05;
-                break;
+        if ("HI" == cbxArquitectura.getSelectedItem()) {
+            CtrOperaciones.array[2] = 2.83;
+        }
+        if ("VHI" == cbxArquitectura.getSelectedItem()) {
+            CtrOperaciones.array[2] = 1.41;
+        }
+        if ("XHI" == cbxArquitectura.getSelectedItem()) {
+            CtrOperaciones.array[2] = 0.0;
+        }
+        if ("VLO" == cbxArquitectura.getSelectedItem()) {
+            CtrOperaciones.array[2] = 7.0;
+        }
+        if ("LO" == cbxArquitectura.getSelectedItem()) {
+            CtrOperaciones.array[2] = 5.65;
         }
         lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
-    }//GEN-LAST:event_btnFlexibiliadActionPerformed
-     int contA = 1;
-    private void btnArquitecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArquitecturaActionPerformed
+    }//GEN-LAST:event_cbxArquitecturaActionPerformed
+
+    private void cbxCohesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCohesionActionPerformed
         // TODO add your handling code here:
-         if (contA < 6) {
-            contA++;
-        } else {
-            contA = 1;
+        if ("NOM" == cbxCohesion.getSelectedItem()) {
+            CtrOperaciones.array[3] = 3.29;
         }
-        switch (contA) {
-            case 1:
-                btnArquitectura.setText("NOM");
-                CtrOperaciones.array[2] = 4.24;
-                break;
-            case 2:
-                btnArquitectura.setText("HI");
-                CtrOperaciones.array[2] = 2.83;
-                break;
-            case 3:
-                btnArquitectura.setText("VHI");
-                CtrOperaciones.array[2] = 1.41;
-                break;
-            case 4:
-                btnArquitectura.setText("XHI");
-                CtrOperaciones.array[2] = 0.0;
-                break;
-            case 5:
-                btnArquitectura.setText("VLO");
-                CtrOperaciones.array[2] = 7.07;
-                break;
-            case 6:
-                btnArquitectura.setText("LO");
-                CtrOperaciones.array[2] = 5.65;
-                break;
+        if ("HI" == cbxCohesion.getSelectedItem()) {
+            CtrOperaciones.array[3] = 2.19;
+        }
+        if ("VHI" == cbxCohesion.getSelectedItem()) {
+            CtrOperaciones.array[3] = 1.10;
+        }
+        if ("XHI" == cbxCohesion.getSelectedItem()) {
+            CtrOperaciones.array[3] = 0.0;
+        }
+        if ("VLO" == cbxCohesion.getSelectedItem()) {
+            CtrOperaciones.array[3] = 5.48;
+        }
+        if ("LO" == cbxCohesion.getSelectedItem()) {
+            CtrOperaciones.array[3] = 4.38;
         }
         lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
-        
-    }//GEN-LAST:event_btnArquitecturaActionPerformed
-   int contC = 1;
-    private void btnCohesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCohesionActionPerformed
+    }//GEN-LAST:event_cbxCohesionActionPerformed
+
+    private void cbxMadurezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMadurezActionPerformed
         // TODO add your handling code here:
-       if (contC < 6) {
-            contC++;
-        } else {
-            contC = 1;
+        if ("NOM" == cbxMadurez.getSelectedItem()) {
+            CtrOperaciones.array[4] = 4.68;
         }
-        switch (contC) {
-            case 1:
-                btnCohesion.setText("NOM");
-                CtrOperaciones.array[3] = 3.29;
-                break;
-            case 2:
-                btnCohesion.setText("HI");
-                CtrOperaciones.array[3] = 2.19;
-                break;
-            case 3:
-                btnCohesion.setText("VHI");
-                CtrOperaciones.array[3] = 1.10;
-                break;
-            case 4:
-                btnCohesion.setText("XHI");
-                CtrOperaciones.array[3] = 0.0;
-                break;
-            case 5:
-                btnCohesion.setText("VLO");
-                CtrOperaciones.array[3] = 5.48;
-                break;
-            case 6:
-                btnCohesion.setText("LO");
-                CtrOperaciones.array[3] = 4.38;
-                break;
+        if ("HI" == cbxMadurez.getSelectedItem()) {
+            CtrOperaciones.array[4] = 3.12;
+        }
+        if ("VHI" == cbxMadurez.getSelectedItem()) {
+            CtrOperaciones.array[4] = 1.56;
+        }
+        if ("XHI" == cbxMadurez.getSelectedItem()) {
+            CtrOperaciones.array[4] = 0.0;
+        }
+        if ("VLO" == cbxMadurez.getSelectedItem()) {
+            CtrOperaciones.array[4] = 7.80;
+        }
+        if ("LO" == cbxMadurez.getSelectedItem()) {
+            CtrOperaciones.array[4] = 6.24;
         }
         lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
-    }//GEN-LAST:event_btnCohesionActionPerformed
-    int contM = 1;
-    private void btnMadurezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMadurezActionPerformed
-        // TODO add your handling code here:
-       if (contM < 6) {
-            contM++;
-        } else {
-            contM = 1;
-        }
-        switch (contM) {
-            case 1:
-                btnMadurez.setText("NOM");
-                CtrOperaciones.array[4] = 4.68;
-                break;
-            case 2:
-                btnMadurez.setText("HI");
-                CtrOperaciones.array[4] = 3.12;
-                break;
-            case 3:
-                btnMadurez.setText("VHI");
-                CtrOperaciones.array[4] = 1.56;
-                break;
-            case 4:
-                btnMadurez.setText("XHI");
-                CtrOperaciones.array[4] = 0.0;
-                break;
-            case 5:
-                btnMadurez.setText("VLO");
-                CtrOperaciones.array[4] = 7.80;
-                break;
-            case 6:
-                btnMadurez.setText("LO");
-                CtrOperaciones.array[4] = 6.24;
-                break;
-        }
-        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
-    }//GEN-LAST:event_btnMadurezActionPerformed
+    }//GEN-LAST:event_cbxMadurezActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
         super.dispose();
     }//GEN-LAST:event_btnOkActionPerformed
 
+   //  int cont = 1;    int contF = 1;     int contA = 1;   int contC = 1;    int contM = 1;
     /**
      * @param args the command line arguments
      */
@@ -436,13 +353,12 @@ if (contF < 6) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnArquitectura;
-    private javax.swing.JButton btnCohesion;
-    private javax.swing.JButton btnFlexibiliad;
-    private javax.swing.JButton btnMadurez;
     private javax.swing.JButton btnOk;
-    private javax.swing.JButton btnPrecedencia;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> cbxArquitectura;
+    private javax.swing.JComboBox<String> cbxCohesion;
+    private javax.swing.JComboBox<String> cbxFlexibilidad;
+    private javax.swing.JComboBox<String> cbxMadurez;
+    private javax.swing.JComboBox<String> cbxPrecedencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

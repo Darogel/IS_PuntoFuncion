@@ -50,20 +50,19 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnComplejidad = new javax.swing.JButton();
-        btnReusabilidad = new javax.swing.JButton();
-        btnPlataforma = new javax.swing.JButton();
-        btnAptitud = new javax.swing.JButton();
-        btnExperiencia = new javax.swing.JButton();
-        btnFacilidades = new javax.swing.JButton();
-        btnCronograma = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         btnOk = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         lbMulti = new javax.swing.JLabel();
         txtMessage = new javax.swing.JTextField();
+        cbxReusabilidad = new javax.swing.JComboBox<>();
+        cbxConfiabilidad = new javax.swing.JComboBox<>();
+        cbxDificultad = new javax.swing.JComboBox<>();
+        cbxAptitud = new javax.swing.JComboBox<>();
+        cbxExperienci = new javax.swing.JComboBox<>();
+        cbxFacilidades = new javax.swing.JComboBox<>();
+        cbxCronograma = new javax.swing.JComboBox<>();
 
         jButton6.setText("jButton1");
 
@@ -79,60 +78,9 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Aptitud del Personal");
 
-        btnComplejidad.setText("NOM");
-        btnComplejidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComplejidadActionPerformed(evt);
-            }
-        });
-
-        btnReusabilidad.setText("NOM");
-        btnReusabilidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReusabilidadActionPerformed(evt);
-            }
-        });
-
-        btnPlataforma.setText("NOM");
-        btnPlataforma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPlataformaActionPerformed(evt);
-            }
-        });
-
-        btnAptitud.setText("NOM");
-        btnAptitud.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAptitudActionPerformed(evt);
-            }
-        });
-
-        btnExperiencia.setText("NOM");
-        btnExperiencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExperienciaActionPerformed(evt);
-            }
-        });
-
-        btnFacilidades.setText("NOM");
-        btnFacilidades.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFacilidadesActionPerformed(evt);
-            }
-        });
-
-        btnCronograma.setText("NOM");
-        btnCronograma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCronogramaActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Facilidades");
 
         jLabel7.setText("Cronograma de desarrollo Requerido");
-
-        jButton1.setText("Cancelar");
 
         btnOk.setText("Ok");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
@@ -145,378 +93,332 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
 
         lbMulti.setText("jLabel9");
 
+        txtMessage.setEditable(false);
         txtMessage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtMessage.setText("Multiplicador Esfuerzo");
+
+        cbxReusabilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "XLO", "VLO", "LO" }));
+        cbxReusabilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxReusabilidadActionPerformed(evt);
+            }
+        });
+
+        cbxConfiabilidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "XLO", "VLO", "LO" }));
+        cbxConfiabilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxConfiabilidadActionPerformed(evt);
+            }
+        });
+
+        cbxDificultad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "XLO", "VLO", "LO" }));
+        cbxDificultad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDificultadActionPerformed(evt);
+            }
+        });
+
+        cbxAptitud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "XLO", "VLO", "LO" }));
+        cbxAptitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxAptitudActionPerformed(evt);
+            }
+        });
+
+        cbxExperienci.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "XLO", "VLO", "LO" }));
+        cbxExperienci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxExperienciActionPerformed(evt);
+            }
+        });
+
+        cbxFacilidades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "XLO", "VLO", "LO" }));
+        cbxFacilidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxFacilidadesActionPerformed(evt);
+            }
+        });
+
+        cbxCronograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NOM", "HI", "VHI", "XHI", "XLO", "VLO", "LO" }));
+        cbxCronograma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCronogramaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)))
-                                .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lbMulti)
-                                    .addComponent(btnFacilidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnCronograma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAptitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnPlataforma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnReusabilidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnComplejidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbMulti)
+                    .addComponent(cbxConfiabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxReusabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxAptitud, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxExperienci, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxFacilidades, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(140, 167, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(74, 213, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnComplejidad)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel1)
+                    .addComponent(cbxConfiabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReusabilidad)
+                    .addComponent(cbxReusabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(17, 17, 17)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPlataforma)
+                    .addComponent(cbxDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxAptitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(btnAptitud))
-                .addGap(18, 18, 18)
+                    .addComponent(cbxExperienci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(btnExperiencia))
-                .addGap(18, 18, 18)
+                    .addComponent(cbxFacilidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(btnFacilidades))
+                    .addComponent(cbxCronograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(btnCronograma))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(lbMulti)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(btnOk)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 351, Short.MAX_VALUE)
                     .addComponent(jLabel8)
-                    .addComponent(lbMulti))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(btnOk))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addGap(0, 73, Short.MAX_VALUE)))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    int cont = 1;
-    private void btnComplejidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComplejidadActionPerformed
-       if (cont < 7) {
-            cont++;
-        } else {
-            cont = 1;
-        }
-
-        switch (cont) {
-            case 1:
-                btnComplejidad.setText("NOM");
-                CtrOperaciones.arrayM[0] = 1;
-                break;
-            case 2:
-                btnComplejidad.setText("HI");
-                CtrOperaciones.arrayM[0] = 1.3;
-                break;
-            case 3:
-                btnComplejidad.setText("VHI");
-                CtrOperaciones.arrayM[0] = 1.74;
-                break;
-            case 4:
-                btnComplejidad.setText("XHI");
-                CtrOperaciones.arrayM[0] = 2.38;
-                break;
-            case 5:
-                btnComplejidad.setText("XLO");
-                CtrOperaciones.arrayM[0] = 0.73;
-                break;
-            case 6:
-                btnComplejidad.setText("VLO");
-                CtrOperaciones.arrayM[0] = 0.81;
-                break;
-            case 7:
-                btnComplejidad.setText("LO");
-                CtrOperaciones.arrayM[0] = 0.98;
-                break;
-        }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
-    }//GEN-LAST:event_btnComplejidadActionPerformed
-    int conR = 1;
-    private void btnReusabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReusabilidadActionPerformed
-         if (conR < 7) {
-            conR++;
-        } else {
-            conR = 1;
-        }
-
-        switch (conR) {
-            case 1:
-                btnReusabilidad.setText("NOM");
-                CtrOperaciones.arrayM[1] = 1;
-                break;
-            case 2:
-                btnReusabilidad.setText("HI");
-                CtrOperaciones.arrayM[1] = 1.07;
-                break;
-            case 3:
-                btnReusabilidad.setText("VHI");
-                CtrOperaciones.arrayM[1] = 1.15;
-                break;
-            case 4:
-                btnReusabilidad.setText("XHI");
-                CtrOperaciones.arrayM[1] = 1.24;
-                break;
-            case 5:
-                btnReusabilidad.setText("XLO");
-                CtrOperaciones.arrayM[1] = 1;
-                break;
-            case 6:
-                btnReusabilidad.setText("VLO");
-                CtrOperaciones.arrayM[1] = 1;
-                break;
-            case 7:
-                btnReusabilidad.setText("LO");
-                CtrOperaciones.arrayM[1] = 0.95;
-                break;
-        }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
-    }//GEN-LAST:event_btnReusabilidadActionPerformed
-int conP = 1;
-    private void btnPlataformaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlataformaActionPerformed
-       if (conP < 7) {
-            conP++;
-        } else {
-            conP = 1;
-        }
-        switch (conP) {
-            case 1:
-                btnPlataforma.setText("NOM");
-                CtrOperaciones.arrayM[2] = 1;
-                break;
-            case 2:
-                btnPlataforma.setText("HI");
-                CtrOperaciones.arrayM[2] = 1.29;
-                break;
-            case 3:
-                btnPlataforma.setText("VHI");
-                CtrOperaciones.arrayM[2] = 1.81;
-                break;
-            case 4:
-                btnPlataforma.setText("XHI");
-                CtrOperaciones.arrayM[2] = 2.61;
-                break;
-            case 5:
-                btnPlataforma.setText("XLO");
-                CtrOperaciones.arrayM[2] = 1;
-                break;
-            case 6:
-                btnPlataforma.setText("VLO");
-                CtrOperaciones.arrayM[2] = 1;
-                break;
-            case 7:
-                btnPlataforma.setText("LO");
-                CtrOperaciones.arrayM[2] = 0.87;
-                break;
-        }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));  
-    }//GEN-LAST:event_btnPlataformaActionPerformed
-int conA = 1;
-    private void btnAptitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAptitudActionPerformed
-         if (conA < 7) {
-            conA++;
-        } else {
-            conA = 1;
-        }
-        switch (conA) {
-            case 1:
-                btnAptitud.setText("NOM");
-                CtrOperaciones.arrayM[3] = 1;
-                break;
-            case 2:
-                btnAptitud.setText("HI");
-                CtrOperaciones.arrayM[3] = 0.83;
-                break;
-            case 3:
-                btnAptitud.setText("VHI");
-                CtrOperaciones.arrayM[3] = 0.63;
-                break;
-            case 4:
-                btnAptitud.setText("XHI");
-                CtrOperaciones.arrayM[3] = 0.5;
-                break;
-            case 5:
-                btnAptitud.setText("XLO");
-                CtrOperaciones.arrayM[3] = 2.12;
-                break;
-            case 6:
-                btnAptitud.setText("VLO");
-                CtrOperaciones.arrayM[3] = 1.62;
-                break;
-            case 7:
-                btnAptitud.setText("LO");
-                CtrOperaciones.arrayM[3] = 1.26;
-                break;
-        }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
-    }//GEN-LAST:event_btnAptitudActionPerformed
-int conE = 1;
-    private void btnExperienciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExperienciaActionPerformed
-         if (conE < 7) {
-            conE++;
-        } else {
-            conE = 1;
-        }
-        switch (conE) {
-            case 1:
-                btnExperiencia.setText("NOM");
-                CtrOperaciones.arrayM[4] = 1;
-                break;
-            case 2:
-                btnExperiencia.setText("HI");
-                CtrOperaciones.arrayM[4] = 0.87;
-                break;
-            case 3:
-                btnExperiencia.setText("VHI");
-                CtrOperaciones.arrayM[4] = 0.71;
-                break;
-            case 4:
-                btnExperiencia.setText("XHI");
-                CtrOperaciones.arrayM[4] = 0.62;
-                break;
-            case 5:
-                btnExperiencia.setText("XLO");
-                CtrOperaciones.arrayM[4] = 1.59;
-                break;
-            case 6:
-                btnExperiencia.setText("VLO");
-                CtrOperaciones.arrayM[4] = 1.33;
-                break;
-            case 7:
-                btnExperiencia.setText("LO");
-                CtrOperaciones.arrayM[4] = 1.12;
-                break;
-        }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
-    }//GEN-LAST:event_btnExperienciaActionPerformed
-   int conF = 1;
-    private void btnFacilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacilidadesActionPerformed
-         if (conF < 7) {
-            conF++;
-        } else {
-            conF = 1;
-        }
-        switch (conF) {
-            case 1:
-                btnFacilidades.setText("NOM");
-                CtrOperaciones.arrayM[5] = 1;
-                break;
-            case 2:
-                btnFacilidades.setText("HI");
-                CtrOperaciones.arrayM[5] = 0.87;
-                break;
-            case 3:
-                btnFacilidades.setText("VHI");
-                CtrOperaciones.arrayM[5] = 0.73;
-                break;
-            case 4:
-                btnFacilidades.setText("XHI");
-                CtrOperaciones.arrayM[5] = 0.62;
-                break;
-            case 5:
-                btnFacilidades.setText("XHI");
-                CtrOperaciones.arrayM[5] = 1.43;
-                break;
-            case 6:
-                btnFacilidades.setText("VLO");
-                CtrOperaciones.arrayM[5] = 1.3;
-                break;
-            case 7:
-                btnFacilidades.setText("LO");
-                CtrOperaciones.arrayM[5] = 1.1;
-                break;
-        }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
-    }//GEN-LAST:event_btnFacilidadesActionPerformed
-    int contC = 1;
-    private void btnCronogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCronogramaActionPerformed
-        // TODO add your handling code here:
-        if (contC < 7) {
-            contC++;
-        } else {
-            contC = 1;
-        }
-        switch (contC) {
-            case 1:
-                btnCronograma.setText("NOM");
-                CtrOperaciones.arrayM[6] = 1;
-                break;
-            case 2:
-                btnCronograma.setText("HI");
-                CtrOperaciones.arrayM[6] = 1;
-                break;
-            case 3:
-                btnCronograma.setText("VHI");
-                CtrOperaciones.arrayM[6] = 1;
-                break;
-            case 4:
-                btnCronograma.setText("XHI");
-                CtrOperaciones.arrayM[6] = 1;
-                break;
-            case 5:
-                btnCronograma.setText("XHI");
-                CtrOperaciones.arrayM[6] = 1;
-                break;
-            case 6:
-                btnCronograma.setText("VLO");
-                CtrOperaciones.arrayM[6] = 1.43;
-                break;
-            case 7:
-                btnCronograma.setText("LO");
-                CtrOperaciones.arrayM[6] = 1.14;
-                break;
-        }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
-    }//GEN-LAST:event_btnCronogramaActionPerformed
-
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
         super.dispose();
     }//GEN-LAST:event_btnOkActionPerformed
 
+    private void cbxReusabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxReusabilidadActionPerformed
+        // TODO add your handling code here:
+        if ("NOM" == cbxReusabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[1] = 1;
+        }
+        if ("HI" == cbxReusabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[1] = 1.07;
+        }
+        if ("VHI" == cbxReusabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[1] = 1.15;
+        }
+        if ("XHI" == cbxReusabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[1] = 1.24;
+        }
+        if ("XLO" == cbxReusabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[1] = 1;
+        }
+        if ("VLO" == cbxReusabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[1] = 1;
+        }
+        if ("LO" == cbxReusabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[1] = 0.9;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+    }//GEN-LAST:event_cbxReusabilidadActionPerformed
+
+    private void cbxConfiabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxConfiabilidadActionPerformed
+        // TODO add your handling code here:
+        if ("NOM" == cbxConfiabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[0] = 1;
+        }
+        if ("HI" == cbxConfiabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[0] = 1.3;
+        }
+        if ("VHI" == cbxConfiabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[0] = 1.74;
+        }
+        if ("XHI" == cbxConfiabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[0] = 2.38;
+        }
+        if ("XLO" == cbxConfiabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[0] = 0.73;
+        }
+        if ("VLO" == cbxConfiabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[0] = 0.81;
+        }
+        if ("LO" == cbxConfiabilidad.getSelectedItem()) {
+            CtrOperaciones.arrayM[0] = 0.98;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+    }//GEN-LAST:event_cbxConfiabilidadActionPerformed
+
+    private void cbxDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDificultadActionPerformed
+        // TODO add your handling code here:
+        if ("NOM" == cbxDificultad.getSelectedItem()) {
+            CtrOperaciones.arrayM[2] = 1;
+        }
+        if ("HI" == cbxDificultad.getSelectedItem()) {
+            CtrOperaciones.arrayM[2] = 1.29;
+        }
+        if ("VHI" == cbxDificultad.getSelectedItem()) {
+            CtrOperaciones.arrayM[2] = 1.81;
+        }
+        if ("XHI" == cbxDificultad.getSelectedItem()) {
+            CtrOperaciones.arrayM[2] = 2.61;
+        }
+        if ("XLO" == cbxDificultad.getSelectedItem()) {
+            CtrOperaciones.arrayM[2] = 1;
+        }
+        if ("VLO" == cbxDificultad.getSelectedItem()) {
+            CtrOperaciones.arrayM[2] = 1;
+        }
+        if ("LO" == cbxDificultad.getSelectedItem()) {
+            CtrOperaciones.arrayM[2] = 0.87;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+    }//GEN-LAST:event_cbxDificultadActionPerformed
+
+    private void cbxAptitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAptitudActionPerformed
+        // TODO add your handling code here:
+        if ("NOM" == cbxAptitud.getSelectedItem()) {
+            CtrOperaciones.arrayM[3] = 1;
+        }
+        if ("HI" == cbxAptitud.getSelectedItem()) {
+            CtrOperaciones.arrayM[3] = 0.83;
+        }
+        if ("VHI" == cbxAptitud.getSelectedItem()) {
+            CtrOperaciones.arrayM[3] = 0.63;
+        }
+        if ("XHI" == cbxAptitud.getSelectedItem()) {
+            CtrOperaciones.arrayM[3] = 0.5;
+        }
+        if ("XLO" == cbxAptitud.getSelectedItem()) {
+            CtrOperaciones.arrayM[3] = 2.12;
+        }
+        if ("VLO" == cbxAptitud.getSelectedItem()) {
+            CtrOperaciones.arrayM[3] = 1.62;
+        }
+        if ("LO" == cbxAptitud.getSelectedItem()) {
+            CtrOperaciones.arrayM[3] = 1.26;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+    }//GEN-LAST:event_cbxAptitudActionPerformed
+
+    private void cbxExperienciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxExperienciActionPerformed
+        // TODO add your handling code here:
+        if ("NOM" == cbxExperienci.getSelectedItem()) {
+            CtrOperaciones.arrayM[4] = 1;
+        }
+        if ("HI" == cbxExperienci.getSelectedItem()) {
+            CtrOperaciones.arrayM[4] = 0.87;
+        }
+        if ("VHI" == cbxExperienci.getSelectedItem()) {
+            CtrOperaciones.arrayM[4] = 0.71;
+        }
+        if ("XHI" == cbxExperienci.getSelectedItem()) {
+            CtrOperaciones.arrayM[4] = 0.62;
+        }
+        if ("XLO" == cbxExperienci.getSelectedItem()) {
+            CtrOperaciones.arrayM[4] = 1.59;
+        }
+        if ("VLO" == cbxExperienci.getSelectedItem()) {
+            CtrOperaciones.arrayM[4] = 1.63;
+        }
+        if ("LO" == cbxExperienci.getSelectedItem()) {
+            CtrOperaciones.arrayM[4] = 1.12;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+    }//GEN-LAST:event_cbxExperienciActionPerformed
+
+    private void cbxFacilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxFacilidadesActionPerformed
+        // TODO add your handling code here:
+        if ("NOM" == cbxFacilidades.getSelectedItem()) {
+            CtrOperaciones.arrayM[5] = 1;
+        }
+        if ("HI" == cbxFacilidades.getSelectedItem()) {
+            CtrOperaciones.arrayM[5] = 0.87;
+        }
+        if ("VHI" == cbxFacilidades.getSelectedItem()) {
+            CtrOperaciones.arrayM[5] = 0.73;
+        }
+        if ("XHI" == cbxFacilidades.getSelectedItem()) {
+            CtrOperaciones.arrayM[5] = 0.62;
+        }
+        if ("XLO" == cbxFacilidades.getSelectedItem()) {
+            CtrOperaciones.arrayM[5] = 1.43;
+        }
+        if ("VLO" == cbxFacilidades.getSelectedItem()) {
+            CtrOperaciones.arrayM[5] = 1.3;
+        }
+        if ("LO" == cbxFacilidades.getSelectedItem()) {
+            CtrOperaciones.arrayM[5] = 1.1;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+    }//GEN-LAST:event_cbxFacilidadesActionPerformed
+
+    private void cbxCronogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCronogramaActionPerformed
+        // TODO add your handling code here:
+        if ("NOM" == cbxCronograma.getSelectedItem()) {
+            CtrOperaciones.arrayM[6] = 1;
+        }
+        if ("HI" == cbxCronograma.getSelectedItem()) {
+            CtrOperaciones.arrayM[6] = 1;
+        }
+        if ("VHI" == cbxCronograma.getSelectedItem()) {
+            CtrOperaciones.arrayM[6] = 1;
+        }
+        if ("XHI" == cbxCronograma.getSelectedItem()) {
+            CtrOperaciones.arrayM[6] = 1;
+        }
+        if ("XLO" == cbxCronograma.getSelectedItem()) {
+            CtrOperaciones.arrayM[6] = 1;
+        }
+        if ("VLO" == cbxCronograma.getSelectedItem()) {
+            CtrOperaciones.arrayM[6] = 1.43;
+        }
+        if ("LO" == cbxCronograma.getSelectedItem()) {
+            CtrOperaciones.arrayM[6] = 1.14;
+        }
+        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+    }//GEN-LAST:event_cbxCronogramaActionPerformed
+
+   // int cont = 1;    int conR = 1;int conP = 1;int conA = 1;int conE = 1;   int conF = 1;    int contC = 1;
     /**
      * @param args the command line arguments
      */
@@ -553,15 +455,14 @@ int conE = 1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAptitud;
-    private javax.swing.JButton btnComplejidad;
-    private javax.swing.JButton btnCronograma;
-    private javax.swing.JButton btnExperiencia;
-    private javax.swing.JButton btnFacilidades;
     private javax.swing.JButton btnOk;
-    private javax.swing.JButton btnPlataforma;
-    private javax.swing.JButton btnReusabilidad;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> cbxAptitud;
+    private javax.swing.JComboBox<String> cbxConfiabilidad;
+    private javax.swing.JComboBox<String> cbxCronograma;
+    private javax.swing.JComboBox<String> cbxDificultad;
+    private javax.swing.JComboBox<String> cbxExperienci;
+    private javax.swing.JComboBox<String> cbxFacilidades;
+    private javax.swing.JComboBox<String> cbxReusabilidad;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

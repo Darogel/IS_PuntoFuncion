@@ -106,7 +106,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
             }
         });
 
-        btnReestrablecer.setText("Restablecer");
+        btnReestrablecer.setText("Restablecer tabla");
         btnReestrablecer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReestrablecerActionPerformed(evt);
@@ -262,34 +262,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         // TODO add your handling code here:
-if (sv.est.getLineasCod() == 0) {
-            int op = JOptionPane.showConfirmDialog(null, "Las Lineas de Codigo son 0, Desea Continuar");
-            if (JOptionPane.OK_OPTION == op) {
-                double sced = Double.parseDouble(txtSced.getText());
-                double salario = Double.parseDouble(txtSalario.getText());
-                double costV = Double.parseDouble(txtCost.getText());
-                sv.calcularPmEstimado();
-                sv.calcularEstTiempo(sced);
-                sv.calcularEstPersona();
-                sv.calcularEstCosto(salario, costV);
-                String[] agregar = new String[12];
-                agregar[0] = txtNombre.getText();
-                agregar[1] = String.valueOf(sv.est.getPuntoFuncion());
-                agregar[2] = String.valueOf(sv.est.getLineasCod() * 1000);
-                //agregar[3] = String.valueOf(sv.est.getFactorEscala());
-                //agregar[4] = String.valueOf(sv.est.getPmNominal());
-                //agregar[5] = String.valueOf(sv.est.getMulEsfuerzo());
-                agregar[3] = String.valueOf(sv.est.getPmEstimado());
-                agregar[4] = String.valueOf(sv.est.getEstTiempo() / (1 + (sced * 0.01)));
-                agregar[5] = String.valueOf(sced);
-                agregar[6] = String.valueOf(sv.est.getEstTiempo());
-                agregar[7] = String.valueOf(sv.est.getEsthHombre());
-                agregar[8] = String.valueOf(salario);
-                agregar[9] = String.valueOf(sv.est.getEstCosto() / (1 + (costV * 0.01)));
-                agregar[10] = String.valueOf(costV);
-                agregar[11] = String.valueOf(sv.est.getEstCosto());
-                model.addRow(agregar);
-            }
+        if (sv.est.getLineasCod() == 0) {
+            JOptionPane.showMessageDialog(null, "Su punto función es Cero. Por favor ingrese valores para el punto función", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            btnEliminar.setEnabled(false);
         } else {
             double sced = Double.parseDouble(txtSced.getText());
             double salario = Double.parseDouble(txtSalario.getText());
@@ -302,9 +277,6 @@ if (sv.est.getLineasCod() == 0) {
             agregar[0] = txtNombre.getText();
             agregar[1] = String.valueOf(sv.est.getPuntoFuncion());
             agregar[2] = String.valueOf(sv.est.getLineasCod() * 1000);
-            // agregar[3] = String.valueOf(sv.est.getFactorEscala());
-            //agregar[4] = String.valueOf(sv.est.getPmNominal());
-            //agregar[5] = String.valueOf(sv.est.getMulEsfuerzo());
             agregar[3] = String.valueOf(sv.est.getPmEstimado());
             agregar[4] = String.valueOf(sv.est.getEstTiempo() / (1 + (sced * 0.01)));
             agregar[5] = String.valueOf(sced);
@@ -315,8 +287,9 @@ if (sv.est.getLineasCod() == 0) {
             agregar[10] = String.valueOf(costV);
             agregar[11] = String.valueOf(sv.est.getEstCosto());
             model.addRow(agregar);
+             btnEliminar.setEnabled(true);
         }
-        btnEliminar.setEnabled(true);
+       
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void btnReestrablecerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReestrablecerActionPerformed
