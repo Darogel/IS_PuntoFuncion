@@ -31,7 +31,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         this.getContentPane().setBackground(PrincipalFrame.color2);
         lbEscala.setText(String.valueOf(CtrOperaciones.est.getFactorEscala()));
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+       // this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         txtMessage.setEditable(false);
 
     }
@@ -61,8 +61,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txtMessage = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lbEscala.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbEscala.setText("jLabel8");
@@ -175,7 +174,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(cbxArquitectura, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -195,7 +194,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cbxPrecedencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,7 +220,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
                     .addComponent(lbEscala))
                 .addGap(32, 32, 32)
                 .addComponent(btnOk)
-                .addContainerGap())
+                .addGap(30, 30, 30))
         );
 
         pack();

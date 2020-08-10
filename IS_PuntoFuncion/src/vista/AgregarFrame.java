@@ -7,6 +7,8 @@ package vista;
 
 import controlador.CtrOperaciones;
 import controlador.Servicios;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import javax.swing.JFrame;
 
 /**
@@ -19,14 +21,17 @@ public class AgregarFrame extends javax.swing.JFrame {
     public int[] compAlta = new int[5];
     public int[] compMedia = new int[5];
     public int[] compBaja = new int[5];
-
+    
+    
+    BigDecimal bigDecimal;
+    
     public AgregarFrame() {
         initComponents();
         jPanel1.setBackground(PrincipalFrame.color1);
         this.getContentPane().setBackground(PrincipalFrame.color2);
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        this.setResizable(false);
+        //this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+       // this.setResizable(false);
         txtLineasPF.setEditable(false);
         txtMessage.setEditable(false);
         txtLineasPF.setText(String.valueOf(CtrOperaciones.lenguaje));
@@ -84,8 +89,7 @@ public class AgregarFrame extends javax.swing.JFrame {
         txtMessage = new javax.swing.JTextField();
         txtLineasPF = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnOk.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnOk.setText("OK");
@@ -247,7 +251,7 @@ public class AgregarFrame extends javax.swing.JFrame {
                                 .addComponent(lbPfTotal)))
                         .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(21, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel11)
@@ -375,7 +379,7 @@ public class AgregarFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnprueba)
                     .addComponent(btnOk))
-                .addContainerGap())
+                .addGap(30, 30, 30))
         );
 
         pack();
@@ -384,7 +388,6 @@ public class AgregarFrame extends javax.swing.JFrame {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
-
         super.dispose();
 
     }//GEN-LAST:event_btnOkActionPerformed
@@ -418,7 +421,8 @@ public class AgregarFrame extends javax.swing.JFrame {
         System.out.println("Valor LineasCod " + est*1000);
 
         lbPfTotal.setText(String.valueOf(valor));
-        lbLineasTotal.setText(String.valueOf(est*1000));
+        bigDecimal = new BigDecimal(est*1000).setScale(2, RoundingMode.UP);
+        lbLineasTotal.setText(String.valueOf(bigDecimal));
  
     }//GEN-LAST:event_btnpruebaActionPerformed
 

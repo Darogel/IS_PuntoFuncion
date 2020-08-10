@@ -5,10 +5,24 @@
  */
 package vista;
 
+import com.itextpdf.text.BaseColor;
 import controlador.Servicios;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPTable;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,9 +54,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
         model.addColumn("Nombre");
         model.addColumn("Punto Función");
         model.addColumn("Lineas Cod");
-        //model.addColumn("Factor Escala");
-        //  model.addColumn("Esf. Nominal");
-        //model.addColumn("Mul. Esfuezo");
         model.addColumn("Esf. Estimado");
         model.addColumn("Est. Tiempo");
         model.addColumn("% Holgura");
@@ -54,6 +65,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         model.addColumn("Costo Total");
         this.jtTable.setModel(model);
         btnEliminar.setEnabled(false);
+        btnReporte.setEnabled(false);
     }
 
     /**
@@ -84,6 +96,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cocomo II - Punto funcion");
@@ -235,12 +248,20 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregar)
                     .addComponent(btnMultiplicador)
                     .addComponent(btnFactor))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
+
+        btnReporte.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        btnReporte.setText("Generar Reporte");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,7 +271,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -261,13 +284,13 @@ public class PrincipalFrame extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(289, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnReestrablecer)
-                                    .addComponent(jLabel3))
+                                .addComponent(btnReestrablecer)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnReporte)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnCalcular)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnEliminar))
@@ -295,8 +318,9 @@ public class PrincipalFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReestrablecer)
                     .addComponent(btnCalcular)
-                    .addComponent(btnEliminar))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnReporte))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -306,8 +330,10 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
         int eli = jtTable.getSelectedRowCount();
-        if (eli >= 0) {
-            model.removeRow(eli);
+        if (jtTable.getRowCount() > 0) {
+            if (eli >= 0) {
+                model.removeRow(eli);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "No hay datos que eliminar");
         }
@@ -323,7 +349,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (sv.est.getLineasCod() == 0) {
             JOptionPane.showMessageDialog(null, "Su punto función es Cero. Por favor ingrese valores para el punto función", "Advertencia", JOptionPane.WARNING_MESSAGE);
-            btnEliminar.setEnabled(false);
         } else {
             double sced = Double.parseDouble(txtSced.getText());
             double salario = Double.parseDouble(txtSalario.getText());
@@ -347,6 +372,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
             agregar[11] = String.valueOf(sv.est.getEstCosto());
             model.addRow(agregar);
             btnEliminar.setEnabled(true);
+            btnReporte.setEnabled(true);
         }
 
     }//GEN-LAST:event_btnCalcularActionPerformed
@@ -357,6 +383,8 @@ public class PrincipalFrame extends javax.swing.JFrame {
         for (int i = eliT - 1; i >= 0; i--) {
             model.removeRow(i);
         }
+        btnReporte.setEnabled(false);
+        btnEliminar.setEnabled(false);
     }//GEN-LAST:event_btnReestrablecerActionPerformed
 
     private void btnFactorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactorActionPerformed
@@ -370,6 +398,71 @@ public class PrincipalFrame extends javax.swing.JFrame {
         MulEsfuerzoFrame mf = new MulEsfuerzoFrame();
         mf.show();
     }//GEN-LAST:event_btnMultiplicadorActionPerformed
+
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        // TODO add your handling code here:
+        if (jtTable.getRowCount() > 0) {
+            Document document = new Document();
+            try {
+                String route = System.getProperty("user.home");
+                PdfWriter.getInstance(document, new FileOutputStream(route + "/Desktop/ReporteEstimación_PF.pdf"));
+                document.open();
+                Paragraph title = new Paragraph("UNIVERSIDAD NACIONAL DE LOJA\n",
+                        FontFactory.getFont("arial", 22, Font.BOLD, BaseColor.BLACK)
+                );
+                document.add(title);
+
+                document.add(new Paragraph("Carrera de Ingeniería en Sistemas\n",
+                        FontFactory.getFont("arial", 18, BaseColor.BLACK)));
+                document.add(new Paragraph("INGENIERÍA DEL SOFTWARE\n",
+                        FontFactory.getFont("arial", 16, BaseColor.BLACK)));
+                document.add(new Paragraph("Integrantes: \n\tJimenez Borja Byron Ronaldo\n\tRogel Rivera Darwin Alexander\n\tLeón Mejía Jean Carlos\n",
+                        FontFactory.getFont("arial", 14, BaseColor.BLACK)));
+                document.add(new Paragraph("Docente: \n\tIng. Jose Guaman",
+                        FontFactory.getFont("arial", 14, BaseColor.BLACK)));
+                Date objData = new Date();
+                document.add(new Paragraph("Fecha: " + objData.toString() + "\n\n",
+                        FontFactory.getFont("arial", 14, BaseColor.BLACK)));
+                PdfPTable table = new PdfPTable(jtTable.getColumnCount());
+
+                Font letra = new Font(Font.FontFamily.TIMES_ROMAN, 9);
+                table.addCell(new Phrase("Nombre", letra));
+                table.addCell(new Phrase("Punto F.", letra));
+                table.addCell(new Phrase("Lineas Cod.", letra));
+                table.addCell(new Phrase("Esf. Estimado", letra));
+                table.addCell(new Phrase("Est. Tiempo", letra));
+                table.addCell(new Phrase("% Holgura", letra));
+                table.addCell(new Phrase("Tiempo Total.", letra));
+                table.addCell(new Phrase("Est. Persona", letra));
+                table.addCell(new Phrase("Pago Hora", letra));
+                table.addCell(new Phrase("Est. Costo", letra));
+                table.addCell(new Phrase("% Extra Costo", letra));
+                table.addCell(new Phrase("Costo Total", letra));
+
+                table.setHeaderRows(1);
+                for (int row = 0; row < jtTable.getRowCount(); row++) {
+                    for (int column = 0; column < jtTable.getColumnCount(); column++) {
+                        table.addCell(new Phrase(jtTable.getValueAt(row, column).toString(), letra));
+                    }
+                }
+
+                document.add(table);
+                document.close();
+                JOptionPane.showMessageDialog(null, "¡Se ha generado el archivo PDF correctamente!",
+                        "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
+
+            } catch (FileNotFoundException fileNotFoundException) {
+                JOptionPane.showMessageDialog(null, "No se encontró el fichero para generar el pdf!",
+                        "RESULTADO", JOptionPane.ERROR_MESSAGE);
+            } catch (DocumentException ex) {
+                Logger.getLogger(PrincipalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "!La Tabla esta Vacia¡");
+        }
+
+
+    }//GEN-LAST:event_btnReporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -413,6 +506,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnFactor;
     private javax.swing.JButton btnMultiplicador;
     private javax.swing.JButton btnReestrablecer;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
