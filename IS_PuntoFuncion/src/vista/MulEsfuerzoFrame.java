@@ -7,7 +7,8 @@ package vista;
 
 import controlador.CtrOperaciones;
 import controlador.Servicios;
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import javax.swing.JFrame;
 
 /**
@@ -19,7 +20,7 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
     /**
      * Creates new form MulEsfuerzoFrame
      */
-    DecimalFormat formato1 = new DecimalFormat("#.00");
+    BigDecimal bigDecimal;
     Servicios sv = new Servicios();
 
     JFrame ventana = new JFrame("Multiplicador Esfuerzo");
@@ -28,10 +29,10 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         initComponents();
         jPanel1.setBackground(PrincipalFrame.color1);
         this.getContentPane().setBackground(PrincipalFrame.color2);
-        lbMulti.setText(String.valueOf(CtrOperaciones.est.getMulEsfuerzo()));
+        bigDecimal = new BigDecimal(CtrOperaciones.est.getMulEsfuerzo()).setScale(2, RoundingMode.UP);
+        lbMulti.setText(String.valueOf(bigDecimal));
         ventana.setSize(800, 600);
         this.setResizable(false);
-        //this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         txtMessage.setEditable(false);
     }
 
@@ -293,7 +294,8 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         if ("LO" == cbxReusabilidad.getSelectedItem()) {
             CtrOperaciones.arrayM[1] = 0.9;
         }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+        bigDecimal = new BigDecimal(sv.calMultiEsfuerzo()).setScale(2, RoundingMode.UP);
+        lbMulti.setText(String.valueOf(bigDecimal));
     }//GEN-LAST:event_cbxReusabilidadActionPerformed
 
     private void cbxConfiabilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxConfiabilidadActionPerformed
@@ -319,7 +321,9 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         if ("LO" == cbxConfiabilidad.getSelectedItem()) {
             CtrOperaciones.arrayM[0] = 0.98;
         }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+        bigDecimal = new BigDecimal(sv.calMultiEsfuerzo()).setScale(2, RoundingMode.UP);
+        lbMulti.setText(String.valueOf(bigDecimal));
+        //lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_cbxConfiabilidadActionPerformed
 
     private void cbxDificultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDificultadActionPerformed
@@ -345,7 +349,9 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         if ("LO" == cbxDificultad.getSelectedItem()) {
             CtrOperaciones.arrayM[2] = 0.87;
         }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+        bigDecimal = new BigDecimal(sv.calMultiEsfuerzo()).setScale(2, RoundingMode.UP);
+        lbMulti.setText(String.valueOf(bigDecimal));
+        //lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_cbxDificultadActionPerformed
 
     private void cbxAptitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAptitudActionPerformed
@@ -371,7 +377,9 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         if ("LO" == cbxAptitud.getSelectedItem()) {
             CtrOperaciones.arrayM[3] = 1.26;
         }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+        bigDecimal = new BigDecimal(sv.calMultiEsfuerzo()).setScale(2, RoundingMode.UP);
+        lbMulti.setText(String.valueOf(bigDecimal));
+       // lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_cbxAptitudActionPerformed
 
     private void cbxExperienciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxExperienciActionPerformed
@@ -397,7 +405,9 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         if ("LO" == cbxExperienci.getSelectedItem()) {
             CtrOperaciones.arrayM[4] = 1.12;
         }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+        bigDecimal = new BigDecimal(sv.calMultiEsfuerzo()).setScale(2, RoundingMode.UP);
+        lbMulti.setText(String.valueOf(bigDecimal));
+       // lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_cbxExperienciActionPerformed
 
     private void cbxFacilidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxFacilidadesActionPerformed
@@ -423,7 +433,9 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         if ("LO" == cbxFacilidades.getSelectedItem()) {
             CtrOperaciones.arrayM[5] = 1.1;
         }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+        bigDecimal = new BigDecimal(sv.calMultiEsfuerzo()).setScale(2, RoundingMode.UP);
+        lbMulti.setText(String.valueOf(bigDecimal));
+       // lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_cbxFacilidadesActionPerformed
 
     private void cbxCronogramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCronogramaActionPerformed
@@ -449,7 +461,9 @@ public class MulEsfuerzoFrame extends javax.swing.JFrame {
         if ("LO" == cbxCronograma.getSelectedItem()) {
             CtrOperaciones.arrayM[6] = 1.14;
         }
-        lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
+        bigDecimal = new BigDecimal(sv.calMultiEsfuerzo()).setScale(2, RoundingMode.UP);
+        lbMulti.setText(String.valueOf(bigDecimal));
+       // lbMulti.setText(String.valueOf(formato1.format(sv.calMultiEsfuerzo())));
     }//GEN-LAST:event_cbxCronogramaActionPerformed
 
     // int cont = 1;    int conR = 1;int conP = 1;int conA = 1;int conE = 1;   int conF = 1;    int contC = 1;

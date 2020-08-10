@@ -9,7 +9,6 @@ import controlador.CtrOperaciones;
 import controlador.Servicios;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import javax.swing.JFrame;
 
 /**
  *
@@ -30,13 +29,12 @@ public class AgregarFrame extends javax.swing.JFrame {
         jPanel1.setBackground(PrincipalFrame.color1);
         this.getContentPane().setBackground(PrincipalFrame.color2);
         this.setResizable(false);
-        //this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-       // this.setResizable(false);
         txtLineasPF.setEditable(false);
         txtMessage.setEditable(false);
         txtLineasPF.setText(String.valueOf(CtrOperaciones.lenguaje));
         lbPfTotal.setText(String.valueOf(CtrOperaciones.est.getPuntoFuncion()));
-        lbLineasTotal.setText(String.valueOf(CtrOperaciones.est.getLineasCod()));
+        bigDecimal = new BigDecimal(CtrOperaciones.est.getLineasCod() * 1000).setScale(2, RoundingMode.UP);
+        lbLineasTotal.setText(String.valueOf(bigDecimal));
         
     }
 

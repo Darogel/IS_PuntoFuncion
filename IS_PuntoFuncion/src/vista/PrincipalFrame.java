@@ -20,6 +20,8 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPTable;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,8 +38,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
     Servicios sv = new Servicios();
     public static Color color1 = new Color(36, 41, 46);
     public static Color color2 = new Color(246, 248, 250);
-    //Estimacion est = new Estimacion();
-
+    BigDecimal bigDecimal;
     DefaultTableModel model = new DefaultTableModel();
 
     public PrincipalFrame() {
@@ -360,16 +361,24 @@ public class PrincipalFrame extends javax.swing.JFrame {
             String[] agregar = new String[12];
             agregar[0] = txtNombre.getText();
             agregar[1] = String.valueOf(sv.est.getPuntoFuncion());
-            agregar[2] = String.valueOf(sv.est.getLineasCod() * 1000);
-            agregar[3] = String.valueOf(sv.est.getPmEstimado());
-            agregar[4] = String.valueOf(sv.est.getEstTiempo() / (1 + (sced * 0.01)));
+            bigDecimal = new BigDecimal(sv.est.getLineasCod() * 1000).setScale(2, RoundingMode.UP);
+            agregar[2] = String.valueOf(bigDecimal);
+            bigDecimal = new BigDecimal(sv.est.getPmEstimado()).setScale(2, RoundingMode.UP);
+            agregar[3] = String.valueOf(bigDecimal);
+            bigDecimal = new BigDecimal(sv.est.getEstTiempo() / (1 + (sced * 0.01))).setScale(2, RoundingMode.UP);
+            agregar[4] = String.valueOf(bigDecimal);
             agregar[5] = String.valueOf(sced);
-            agregar[6] = String.valueOf(sv.est.getEstTiempo());
-            agregar[7] = String.valueOf(sv.est.getEsthHombre());
+            bigDecimal = new BigDecimal(sv.est.getEstTiempo()).setScale(2, RoundingMode.UP);
+            agregar[6] = String.valueOf(bigDecimal);
+            bigDecimal = new BigDecimal(sv.est.getEsthHombre()).setScale(2, RoundingMode.UP);
+            agregar[7] = String.valueOf(bigDecimal);
             agregar[8] = String.valueOf(salario);
-            agregar[9] = String.valueOf(sv.est.getEstCosto() / (1 + (costV * 0.01)));
-            agregar[10] = String.valueOf(costV);
-            agregar[11] = String.valueOf(sv.est.getEstCosto());
+            bigDecimal = new BigDecimal(sv.est.getEstCosto() / (1 + (costV * 0.01))).setScale(2, RoundingMode.UP);
+            agregar[9] = String.valueOf(bigDecimal);
+            bigDecimal = new BigDecimal(costV).setScale(2, RoundingMode.UP);
+            agregar[10] = String.valueOf(bigDecimal);
+            bigDecimal = new BigDecimal(sv.est.getEstCosto()).setScale(2, RoundingMode.UP);
+            agregar[11] = String.valueOf(bigDecimal);
             model.addRow(agregar);
             btnEliminar.setEnabled(true);
             btnReporte.setEnabled(true);

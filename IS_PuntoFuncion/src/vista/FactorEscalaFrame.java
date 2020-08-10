@@ -7,7 +7,8 @@ package vista;
 
 import controlador.CtrOperaciones;
 import controlador.Servicios;
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import javax.swing.JFrame;
 
 /**
@@ -20,8 +21,7 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
      * Creates new form FactorEscalaFrame
      */
     Servicios sv = new Servicios();
-    //Estimacion est = new Estimacion();
-    DecimalFormat formato1 = new DecimalFormat("#.00");
+    BigDecimal bigDecimal;
 
     JFrame ventana = new JFrame("Factor Escalar");
 
@@ -29,9 +29,9 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         initComponents();
         jPanel1.setBackground(PrincipalFrame.color1);
         this.getContentPane().setBackground(PrincipalFrame.color2);
-        lbEscala.setText(String.valueOf(CtrOperaciones.est.getFactorEscala()));
+        bigDecimal = new BigDecimal(CtrOperaciones.est.getFactorEscala()).setScale(2, RoundingMode.UP);
+        lbEscala.setText(String.valueOf(bigDecimal));
         this.setResizable(false);
-       // this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         txtMessage.setEditable(false);
 
     }
@@ -247,7 +247,9 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         if ("LO" == cbxPrecedencia.getSelectedItem()) {
             CtrOperaciones.array[6] = 4.96;
         }
-        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
+        
+        bigDecimal = new BigDecimal(sv.calFactorEscala()).setScale(2, RoundingMode.UP);
+        lbEscala.setText(String.valueOf(bigDecimal));
     }//GEN-LAST:event_cbxPrecedenciaActionPerformed
 
     private void cbxFlexibilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxFlexibilidadActionPerformed
@@ -270,7 +272,9 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         if ("LO" == cbxFlexibilidad.getSelectedItem()) {
             CtrOperaciones.array[1] = 4.05;
         }
-        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
+        bigDecimal = new BigDecimal(sv.calFactorEscala()).setScale(2, RoundingMode.UP);
+        lbEscala.setText(String.valueOf(bigDecimal));
+        //lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
     }//GEN-LAST:event_cbxFlexibilidadActionPerformed
 
     private void cbxArquitecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxArquitecturaActionPerformed
@@ -293,7 +297,9 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         if ("LO" == cbxArquitectura.getSelectedItem()) {
             CtrOperaciones.array[2] = 5.65;
         }
-        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
+        bigDecimal = new BigDecimal(sv.calFactorEscala()).setScale(2, RoundingMode.UP);
+        lbEscala.setText(String.valueOf(bigDecimal));
+        //lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
     }//GEN-LAST:event_cbxArquitecturaActionPerformed
 
     private void cbxCohesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCohesionActionPerformed
@@ -316,7 +322,9 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         if ("LO" == cbxCohesion.getSelectedItem()) {
             CtrOperaciones.array[3] = 4.38;
         }
-        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
+        bigDecimal = new BigDecimal(sv.calFactorEscala()).setScale(2, RoundingMode.UP);
+        lbEscala.setText(String.valueOf(bigDecimal));
+       // lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
     }//GEN-LAST:event_cbxCohesionActionPerformed
 
     private void cbxMadurezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMadurezActionPerformed
@@ -339,7 +347,9 @@ public class FactorEscalaFrame extends javax.swing.JFrame {
         if ("LO" == cbxMadurez.getSelectedItem()) {
             CtrOperaciones.array[4] = 6.24;
         }
-        lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
+        bigDecimal = new BigDecimal(sv.calFactorEscala()).setScale(2, RoundingMode.UP);
+        lbEscala.setText(String.valueOf(bigDecimal));
+        //lbEscala.setText(String.valueOf(formato1.format(sv.calFactorEscala())));
     }//GEN-LAST:event_cbxMadurezActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
