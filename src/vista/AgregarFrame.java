@@ -183,7 +183,7 @@ public class AgregarFrame extends javax.swing.JFrame {
 
         cbnLenguaje.setBackground(new java.awt.Color(246, 248, 250));
         cbnLenguaje.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbnLenguaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "JAVA", "PHP", "NODE.JS" }));
+        cbnLenguaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "ASP", "C", "C++", "C#", "COBOL", "HTML", "JAVA", "JavaScript", ".NET", "VB.NET", "Visual Basic" }));
         cbnLenguaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbnLenguajeActionPerformed(evt);
@@ -428,22 +428,59 @@ public class AgregarFrame extends javax.swing.JFrame {
 
     private void cbnLenguajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbnLenguajeActionPerformed
         // TODO add your handling code here:
-        if (cbnLenguaje.getSelectedItem() == "JAVA") {
-            txtLineasPF.setText("53");
-            CtrOperaciones.lenguaje = 53;
-        }
-        if (cbnLenguaje.getSelectedItem() == "PHP") {
-            txtLineasPF.setText("23");
-            CtrOperaciones.lenguaje = 23;
-        }
-        if (cbnLenguaje.getSelectedItem() == "NODE.JS") {
-            txtLineasPF.setText("45");
-            CtrOperaciones.lenguaje = 45;
-        }
         if (cbnLenguaje.getSelectedItem() == "SELECCIONAR") {
             txtLineasPF.setText("53");
             CtrOperaciones.lenguaje = 53;
         }
+        if (cbnLenguaje.getSelectedItem() == "JAVA") {
+            txtLineasPF.setText("53");
+            CtrOperaciones.lenguaje = 53;
+        }
+        if (cbnLenguaje.getSelectedItem() == "C") {
+            txtLineasPF.setText("97");
+            CtrOperaciones.lenguaje = 97;
+        }
+        if (cbnLenguaje.getSelectedItem() == "C++") {
+            txtLineasPF.setText("50");
+            CtrOperaciones.lenguaje = 50;
+        }
+        if (cbnLenguaje.getSelectedItem() == "JavaScript") {
+            txtLineasPF.setText("47");
+            CtrOperaciones.lenguaje = 47;
+        }
+        if (cbnLenguaje.getSelectedItem() == ".NET") {
+            txtLineasPF.setText("57");
+            CtrOperaciones.lenguaje = 57;
+        }
+        if (cbnLenguaje.getSelectedItem() == "VB.NET") {
+            txtLineasPF.setText("52");
+            CtrOperaciones.lenguaje = 52;
+        }
+        if (cbnLenguaje.getSelectedItem() == "COBOL") {
+            txtLineasPF.setText("61");
+            CtrOperaciones.lenguaje = 61;
+        }
+        if (cbnLenguaje.getSelectedItem() == "ASP") {
+            txtLineasPF.setText("51");
+            CtrOperaciones.lenguaje = 51;
+        }
+        if (cbnLenguaje.getSelectedItem() == "Visual Basic") {
+            txtLineasPF.setText("42");
+            CtrOperaciones.lenguaje = 42;
+        }
+        if (cbnLenguaje.getSelectedItem() == "C#") {
+            txtLineasPF.setText("54");
+            CtrOperaciones.lenguaje = 54;
+        }
+        if (cbnLenguaje.getSelectedItem() == "ASP") {
+            txtLineasPF.setText("51");
+            CtrOperaciones.lenguaje = 51;
+        }
+        if (cbnLenguaje.getSelectedItem() == "HTML") {
+            txtLineasPF.setText("34");
+            CtrOperaciones.lenguaje = 34;
+        }
+
 
     }//GEN-LAST:event_cbnLenguajeActionPerformed
 
