@@ -9,6 +9,7 @@ import controlador.CtrOperaciones;
 import controlador.Servicios;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import javax.swing.JOptionPane;
 import modelo.Estimacion;
 
 /**
@@ -415,14 +416,16 @@ public class AgregarFrame extends javax.swing.JFrame {
         compBaja[4] = (Integer) spnAieBaja.getValue();
         sv.calcularComplejidad(compBaja, compAlta, compMedia);
         int valor = sv.calcularPf(CtrOperaciones.py.getComponente());
-        System.out.println("Valor PF " + valor);
-        
-        double est = sv.calcularLineasCod();
-        System.out.println("Valor LineasCod " + est*1000);
-
-        lbPfTotal.setText(String.valueOf(valor));
-        bigDecimal = new BigDecimal(est*1000).setScale(2, RoundingMode.UP);
-        lbLineasTotal.setText(String.valueOf(bigDecimal));
+       if (valor <= 0) {
+            JOptionPane.showMessageDialog(null, "Ingrese valores Para hacer el calculo","Valores vacios",JOptionPane.ERROR_MESSAGE);
+        } else {
+            //System.out.println("Valor PF " + valor);
+            double est = sv.calcularLineasCod();
+            //System.out.println("Valor LineasCod " + est * 1000);
+            lbPfTotal.setText(String.valueOf(valor));
+            bigDecimal = new BigDecimal(est * 1000).setScale(2, RoundingMode.UP);
+            lbLineasTotal.setText(String.valueOf(bigDecimal));
+        }
  
     }//GEN-LAST:event_btnpruebaActionPerformed
 
